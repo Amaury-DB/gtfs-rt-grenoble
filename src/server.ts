@@ -92,7 +92,7 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 app.listen(PORT, () => {
   // Start the batch processing after server is running

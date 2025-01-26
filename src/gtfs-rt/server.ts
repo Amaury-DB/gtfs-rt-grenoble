@@ -18,7 +18,7 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
   console.log(`GTFS-RT server running on port ${PORT}`);
 });
