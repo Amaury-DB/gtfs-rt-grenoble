@@ -1,0 +1,4232 @@
+[
+    {
+      "id": "SEM:A",
+      "gtfsId": "SEM:A",
+      "shortName": "A",
+      "longName": "FONTAINE La Poya / PONT DE CLAIX L'Etoile",
+      "color": "3376B8",
+      "textColor": "FFFFFF",
+      "mode": "TRAM",
+      "type": "TRAM"
+    },
+    {
+      "id": "SEM:B",
+      "gtfsId": "SEM:B",
+      "shortName": "B",
+      "longName": "GRENOBLE Oxford / GIÈRES Plaine des Sports",
+      "color": "479A45",
+      "textColor": "FFFFFF",
+      "mode": "TRAM",
+      "type": "TRAM"
+    },
+    {
+      "id": "SEM:C",
+      "gtfsId": "SEM:C",
+      "shortName": "C",
+      "longName": "SAINT-MARTIN-D HÈRES Université Condillac / SEYSSINS Le Prisme",
+      "color": "C20078",
+      "textColor": "FFFFFF",
+      "mode": "TRAM",
+      "type": "TRAM"
+    },
+    {
+      "id": "SEM:D",
+      "gtfsId": "SEM:D",
+      "shortName": "D",
+      "longName": "SAINT-MARTIN-D’HÈRES Etienne Grappe / GRENOBLE Gares",
+      "color": "DE9917",
+      "textColor": "FFFFFF",
+      "mode": "TRAM",
+      "type": "TRAM"
+    },
+    {
+      "id": "SEM:E",
+      "gtfsId": "SEM:E",
+      "shortName": "E",
+      "longName": "FONTANIL-CORNILLON Palluel / GRENOBLE Louise Michel",
+      "color": "533786",
+      "textColor": "FFFFFF",
+      "mode": "TRAM",
+      "type": "TRAM"
+    },
+    {
+      "id": "SEM:NAVA",
+      "gtfsId": "SEM:NAVA",
+      "shortName": "NAVA",
+      "longName": "Bus Relais A",
+      "color": "3376B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "NAVETTE"
+    },
+    {
+      "id": "SEM:C1",
+      "gtfsId": "SEM:1",
+      "shortName": "C1",
+      "longName": "GRENOBLE Cité Jean Macé / MEYLAN Maupertuis / MONTBONNOT-SAINT- MARTIN Pré de l'Eau",
+      "color": "F5D24D",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "CHRONO"
+    },
+    {
+      "id": "SEM:C2",
+      "gtfsId": "SEM:2",
+      "shortName": "C2",
+      "longName": "GRENOBLE Louise Michel / CLAIX Pont Rouge",
+      "color": "F5D24D",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "CHRONO"
+    },
+    {
+      "id": "SEM:C3",
+      "gtfsId": "SEM:3",
+      "shortName": "C3",
+      "longName": "GRENOBLE Victor Hugo / ÉCHIROLLES Centre du Graphisme",
+      "color": "F5D24D",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "CHRONO"
+    },
+    {
+      "id": "SEM:C4",
+      "gtfsId": "SEM:4",
+      "shortName": "C4",
+      "longName": "GRENOBLE Victor Hugo / EYBENS Le Verderet",
+      "color": "F5D24D",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "CHRONO"
+    },
+    {
+      "id": "SEM:C5",
+      "gtfsId": "SEM:5",
+      "shortName": "C5",
+      "longName": "GRENOBLE Palais de Justice - Gare / GIÈRES Universités - Biologie",
+      "color": "F5D24D",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "CHRONO"
+    },
+    {
+      "id": "SEM:C6",
+      "gtfsId": "SEM:6",
+      "shortName": "C6",
+      "longName": "GRENOBLE Oxford / EYBENS Maisons Neuves",
+      "color": "F5D24D",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "CHRONO"
+    },
+    {
+      "id": "SEM:C7",
+      "gtfsId": "SEM:7",
+      "shortName": "C7",
+      "longName": "ÉCHIROLLES Comboire / SAINT-MARTIN-D HÈRES Henri Wallon",
+      "color": "F5D24D",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "CHRONO"
+    },
+    {
+      "id": "SEM:C8",
+      "gtfsId": "SEM:8",
+      "shortName": "C8",
+      "longName": "GRENOBLE Victor Hugo Belgrade / GIÈRES Université - Biologie / GIÈRES Université IUT STAPS",
+      "color": "F5D24D",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "CHRONO"
+    },
+    {
+      "id": "GSV:C9",
+      "gtfsId": "GSV:C9",
+      "shortName": "C9",
+      "longName": "Bernin - Villard-Bonnot - Le Versoud - Montbonnot - Meylan",
+      "color": "EF7C00",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "CHRONO_PERI"
+    },
+    {
+      "id": "SEM:C10",
+      "gtfsId": "SEM:10",
+      "shortName": "C10",
+      "longName": "BERNIN Cloyères / ÉCHIROLLES Marie Curie",
+      "color": "EF7C00",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "CHRONO_PERI"
+    },
+    {
+      "id": "SEM:C11",
+      "gtfsId": "SEM:11",
+      "shortName": "C11",
+      "longName": "LUMBIN Longs Prés / VOIRON Gare Routière Sud",
+      "color": "EF7C00",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "CHRONO_PERI"
+    },
+    {
+      "id": "SEM:C12",
+      "gtfsId": "SEM:12",
+      "shortName": "C12",
+      "longName": "GONCELIN Gare / VOIRON Champfeuillet",
+      "color": "EF7C00",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "CHRONO_PERI"
+    },
+    {
+      "id": "SEM:C13",
+      "gtfsId": "SEM:13",
+      "shortName": "C13",
+      "longName": "VIZILLE Chantefeuille / GRENOBLE Gare Routière / VOREPPE Gare SNCF",
+      "color": "EF7C00",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "CHRONO_PERI"
+    },
+    {
+      "id": "SEM:C14",
+      "gtfsId": "SEM:14",
+      "shortName": "C14",
+      "longName": "GRENOBLE Gares / SAINT-GEORGES-DE-COMMIERS Gare / LE GUA Les Saillants",
+      "color": "EF7C00",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "CHRONO_PERI"
+    },
+    {
+      "id": "SEM:15",
+      "gtfsId": "SEM:15",
+      "shortName": "15",
+      "longName": "GRENOBLE Verdun - Préfecture / DOMÈNE Chenevières / DOMÈNE Les Arnauds",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:16",
+      "gtfsId": "SEM:16",
+      "shortName": "16",
+      "longName": "PONT-DE-CLAIX Gendarmerie / SAINT-MARTIN-D HÈRES Les Alloves",
+      "color": "33A457",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:17",
+      "gtfsId": "SEM:17",
+      "shortName": "17",
+      "longName": "GRENOBLE Verdun - Préfecture / MEYLAN Lycée du Grésivaudan / CORENC Montfleury",
+      "color": "33A457",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:18",
+      "gtfsId": "SEM:18",
+      "shortName": "18",
+      "longName": "MEYLAN Lycée du Grésivaudan / POISAT Cimetière Intercommunal",
+      "color": "33A457",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:19",
+      "gtfsId": "SEM:19",
+      "shortName": "19",
+      "longName": "SASSENAGE L’Ovalie / SEYSSINS Garlettes",
+      "color": "33A457",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:20",
+      "gtfsId": "SEM:20",
+      "shortName": "20",
+      "longName": "SEYSSINET-PARISET Hôtel de Ville / SASSENAGE Les Engenières / VEUREY-VOROIZE La Rive",
+      "color": "33A457",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:21",
+      "gtfsId": "SEM:21",
+      "shortName": "21",
+      "longName": "SEYSSINS Le Prisme / CLAIX Pont Rouge",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:22",
+      "gtfsId": "SEM:22",
+      "shortName": "22",
+      "longName": "GRENOBLE Oxford / SAINT-ÉGRÈVE Gare",
+      "color": "33A457",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:23",
+      "gtfsId": "SEM:23",
+      "shortName": "23",
+      "longName": "VIZILLE Le Péage / SAINT-MARTIN-D'HÈRES Bibliothèques Universitaire",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:24",
+      "gtfsId": "SEM:24",
+      "shortName": "24",
+      "longName": "GRENOBLE Verdun - Préfecture / GIÈRES Gare - Universités",
+      "color": "33A457",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:25",
+      "gtfsId": "SEM:25",
+      "shortName": "25",
+      "longName": "GRENOBLE Colonel Dumont / LE GUA Les Saillants",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "GSV:34",
+      "gtfsId": "GSV:P34",
+      "shortName": "34",
+      "longName": "Goncelin - Froges - Brignoud - Villard Bonnot",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "GSV:35",
+      "gtfsId": "GSV:P35",
+      "shortName": "35",
+      "longName": "Villard-Bonnot - Crolles - Le Touvet - Goncelin",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "GSV:36",
+      "gtfsId": "GSV:P36",
+      "shortName": "36",
+      "longName": "Allevard - Goncelin - Pontcharra - Crolles",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:80",
+      "gtfsId": "SEM:80",
+      "shortName": "80",
+      "longName": "GRENOBLE Verdun Préfecture / CROLLES Le Brocey",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:82",
+      "gtfsId": "SEM:82",
+      "shortName": "82",
+      "longName": "LA TRONCHE Grand Sablon / SAINT-NAZAIRE-LES-EYMES Mairie",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:84",
+      "gtfsId": "SEM:84",
+      "shortName": "84",
+      "longName": "GRENOBLE Gare Routière / LE TOUVET Grandes Terres",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:85",
+      "gtfsId": "SEM:85",
+      "shortName": "85",
+      "longName": "LA TRONCHE Grand Sablon / PLATEAU-DES-PETITES ROCHES Col de Marcieu",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:86",
+      "gtfsId": "SEM:86",
+      "shortName": "86",
+      "longName": "GRENOBLE Gare Routière / ALLEVARD Collège",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:88",
+      "gtfsId": "SEM:88",
+      "shortName": "88",
+      "longName": "SAINT-MARTIN-D’HÈRES Bibliothèques Universitaires / SAINT-MARTIN-D’URIAGE Le Pinet d'Uriage",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "GSV:89",
+      "gtfsId": "GSV:P89",
+      "shortName": "89",
+      "longName": "PROXIMO 89",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:90",
+      "gtfsId": "SEM:90",
+      "shortName": "90",
+      "longName": "GIÈRES Gare Université / SAINT-ISMIER Collège Grésivaudan",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "GSV:91",
+      "gtfsId": "GSV:P91",
+      "shortName": "91",
+      "longName": "PROXIMO 91",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "GSV:92",
+      "gtfsId": "GSV:P92",
+      "shortName": "92",
+      "longName": "PROXIMO 92",
+      "color": "1E71B8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PROXIMO"
+    },
+    {
+      "id": "SEM:40",
+      "gtfsId": "SEM:40",
+      "shortName": "40",
+      "longName": "GRENOBLE Victor Hugo / GRENOBLE Le Rabot",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:41",
+      "gtfsId": "SEM:41",
+      "shortName": "41",
+      "longName": "CORENC La Garenne / LA TRONCHE Grand Sablon",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:42",
+      "gtfsId": "SEM:42",
+      "shortName": "42",
+      "longName": "MEYLAN La Détourbe / LA TRONCHE Grand Sablon",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:44",
+      "gtfsId": "SEM:44",
+      "shortName": "44",
+      "longName": "LE GUA Les Saillants / LE GUA Prélenfrey Église / MIRIBEL-LANCHÂTRE Le Vernay / Col de l'Arzelier",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:45",
+      "gtfsId": "SEM:45",
+      "shortName": "45",
+      "longName": "VIF La Valonne / VARCES-ALLIÈRES-ET-RISSET Rond-Point de l'Europe",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:46",
+      "gtfsId": "SEM:46",
+      "shortName": "46",
+      "longName": "SAINT-PAUL-DE-VARCES Place / VARCES-ALLIÈRES-ET-RISSET République",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:47",
+      "gtfsId": "SEM:47",
+      "shortName": "47",
+      "longName": "VARCES-ALLIÈRES-ET-RISSET Risset / CLAIX Pont Rouge / CLAIX Val d’Allières",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:48",
+      "gtfsId": "SEM:48",
+      "shortName": "48",
+      "longName": "CLAIX Cossey / CLAIX Pont Rouge",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:49",
+      "gtfsId": "SEM:49",
+      "shortName": "49",
+      "longName": "SEYSSINET-PARISET Cimetière / SEYSSINS Clinique du Dauphiné",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:50",
+      "gtfsId": "SEM:50",
+      "shortName": "50",
+      "longName": "FONTAINE La Poya / SASSENAGE Les Côtes",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:51",
+      "gtfsId": "SEM:51",
+      "shortName": "51",
+      "longName": "VEUREY-VOROIZE Châtelard / VEUREY-VOROIZE La Rive / SAINT-ÉGRÈVE Gare",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:54",
+      "gtfsId": "SEM:54",
+      "shortName": "54",
+      "longName": "GRENOBLE Oxford / SASSENAGE Les Engenières / SAINT-ÉGRÈVE Pont de Vence",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:55",
+      "gtfsId": "SEM:55",
+      "shortName": "55",
+      "longName": "SAINT-MARTIN-LE-VINOUX Col de Clémencières / SAINT-MARTIN-LE-VINOUX Hôtel de ville",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:56",
+      "gtfsId": "SEM:56",
+      "shortName": "56",
+      "longName": "SAINT-MARTIN-LE-VINOUX Col de Clémencières / GRENOBLE Casamaures - Village",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:59",
+      "gtfsId": "SEM:59",
+      "shortName": "59",
+      "longName": "SAINT MARTIN D'URIAGE Haut Vues -> GIERES gare",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:60",
+      "gtfsId": "SEM:60",
+      "shortName": "60",
+      "longName": "PROVEYSIEUX Planfay Haut / SAINT-ÉGRÈVE Muret",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:61",
+      "gtfsId": "SEM:61",
+      "shortName": "61",
+      "longName": "QUAIX-EN-CHARTREUSE La Cime de Mont-Quaix / SAINT-ÉGRÈVE Muret",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:63",
+      "gtfsId": "SEM:63",
+      "shortName": "63",
+      "longName": "MONT-SAINT-MARTIN Chemin de Namière / SAINT-ÉGRÈVE Gare",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:64",
+      "gtfsId": "SEM:64",
+      "shortName": "64",
+      "longName": "PONT-DE-CLAIX L'Étoile / PONT-DE-CLAIX ZI des Îles",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:65",
+      "gtfsId": "SEM:65",
+      "shortName": "65",
+      "longName": "GRENOBLE Grand'place / VIZILLE Chantefeuille / VIZILLE Le Péage",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:66",
+      "gtfsId": "SEM:66",
+      "shortName": "66",
+      "longName": "JARRIE Clos Jouvin / ÉCHIROLLES Gare",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:67",
+      "gtfsId": "SEM:67",
+      "shortName": "67",
+      "longName": "HERBEYS Le Bourg / GRENOBLE Grand’place",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:68",
+      "gtfsId": "SEM:68",
+      "shortName": "68",
+      "longName": "EYBENS La Grange du Château / ÉCHIROLLES La Rampe - Centre Ville",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:69",
+      "gtfsId": "SEM:69",
+      "shortName": "69",
+      "longName": "SAINT-MARTIN-D HÈRES Bibliothèques Universitaires / VAULNAVEYS-LE-HAUT Belmont",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:70",
+      "gtfsId": "SEM:70",
+      "shortName": "70",
+      "longName": "MONTCHABOUD Le Village / CHAMP-SUR-DRAC ZA La Plaine",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:71",
+      "gtfsId": "SEM:71",
+      "shortName": "71",
+      "longName": "CHAMPAGNIER Place du Laca / JARRIE Gare",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:73",
+      "gtfsId": "SEM:73",
+      "shortName": "73",
+      "longName": "Notre Dame de Commiers / Vif",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "GSV:74",
+      "gtfsId": "GSV:F74",
+      "shortName": "74",
+      "longName": "FLEXO 74",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "GSV:75",
+      "gtfsId": "GSV:F75",
+      "shortName": "75",
+      "longName": "Pontcharra - Barraux - La Flachère - St-Vincent de Mercuze - Le Touvet - Goncelin",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "GSV:76",
+      "gtfsId": "GSV:F76",
+      "shortName": "76",
+      "longName": "Allevard - La Chapelle-du-Bard - Le Moutaret - Saint-Maximin - Pontcharra",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "GSV:78",
+      "gtfsId": "GSV:F78",
+      "shortName": "78",
+      "longName": "Chapareillan - Barraux - Pontcharra",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "GSV:79",
+      "gtfsId": "GSV:F79",
+      "shortName": "79",
+      "longName": "ALLEVARD ECOLE PLEIADE",
+      "color": "D572A8",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "SEM:N62",
+      "gtfsId": "SEM:62",
+      "shortName": "N62",
+      "longName": "SARCENAS Pont du Croz / SARCENAS Col de Porte / GRENOBLE Notre-Dame - Musée",
+      "color": "81BA26",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "FLEXO"
+    },
+    {
+      "id": "C38:X08",
+      "gtfsId": "C38:X08",
+      "shortName": "X08",
+      "longName": "EXPRESS BEAUREPAIRE-GRENOBLE",
+      "color": "9d1c6d",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_STRUCT"
+    },
+    {
+      "id": "C38:ABR05",
+      "gtfsId": "C38:ABR05",
+      "shortName": "ABR05",
+      "longName": "LA BATIE DIVISIN-LES ABRETS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:ABR06",
+      "gtfsId": "C38:ABR06",
+      "shortName": "ABR06",
+      "longName": "PANISSAGE-VAL DE VIRIEU-LES ABRETS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:ABR08",
+      "gtfsId": "C38:ABR08",
+      "shortName": "ABR08",
+      "longName": "VALENCOGNE-LA BATIE DIVISIN-LES ABRETS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:BDO01",
+      "gtfsId": "C38:BDO01",
+      "shortName": "BDO01",
+      "longName": "ORNON-BOURG D'OISANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:BDO02",
+      "gtfsId": "C38:BDO02",
+      "shortName": "BDO02",
+      "longName": "AURIS-MIZOEN-LE FRENEY-BOURG D'OISANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:BDO03",
+      "gtfsId": "C38:BDO03",
+      "shortName": "BDO03",
+      "longName": "VENOSC-BOURG D'OISANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:BDO04",
+      "gtfsId": "C38:BDO04",
+      "shortName": "BDO04",
+      "longName": "VAUJANY-OZ-ALLEMONT-BOURG D'OISANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:BDO05",
+      "gtfsId": "C38:BDO05",
+      "shortName": "BDO05",
+      "longName": "LE BASSEY-LE VERT-BOURG D'OISANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:BDO08",
+      "gtfsId": "C38:BDO08",
+      "shortName": "BDO08",
+      "longName": "RIOUPEROUX-LIVET-BOURG D'OISANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:CLE01",
+      "gtfsId": "C38:CLE01",
+      "shortName": "CLE01",
+      "longName": "ST MARTIN DE CLELLES-CLELLES ECOLES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:CPL01",
+      "gtfsId": "C38:CPL01",
+      "shortName": "CPL01",
+      "longName": "GRENOBLE-AUTRANS-LA CHAPELLE EN VERCORS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:CRP01",
+      "gtfsId": "C38:CRP01",
+      "shortName": "CRP01",
+      "longName": "PELLAFOL-LE SAUTET-CORPS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:CRP04",
+      "gtfsId": "C38:CRP04",
+      "shortName": "CRP04",
+      "longName": "LES COTES DE CORPS-CORPS (CORRES. LA MUR",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:CSA08",
+      "gtfsId": "C38:CSA08",
+      "shortName": "CSA08",
+      "longName": "DESSERTE LA COTE ST ANDRE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:EDG01",
+      "gtfsId": "C38:EDG01",
+      "shortName": "EDG01",
+      "longName": "PRIMAIRE ST CHRISTOPHE SUR GUIERS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:GRE04",
+      "gtfsId": "C38:GRE04",
+      "shortName": "GRE04",
+      "longName": "VIENNE-GRENOBLE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:LAF01",
+      "gtfsId": "C38:LAF01",
+      "shortName": "LAF01",
+      "longName": "LE SAPEY-LAFFREY (CORRESPONDANCE)",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:LEM01",
+      "gtfsId": "C38:LEM01",
+      "shortName": "LEM01",
+      "longName": "COLOMBE-LE GRAND LEMPS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:LEM02",
+      "gtfsId": "C38:LEM02",
+      "shortName": "LEM02",
+      "longName": "APPRIEU-LE GRAND LEMPS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:LEM06",
+      "gtfsId": "C38:LEM06",
+      "shortName": "LEM06",
+      "longName": "OYEU-BURCIN-LE GRAND LEMPS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:LTP10",
+      "gtfsId": "C38:LTP10",
+      "shortName": "LTP10",
+      "longName": "BLANDIN-LE PASSAGE-LA TOUR DU PIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:LTP11",
+      "gtfsId": "C38:LTP11",
+      "shortName": "LTP11",
+      "longName": "PANISSAGE-MONTAGNIEU-LA TOUR DU PIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MAV01",
+      "gtfsId": "C38:MAV01",
+      "shortName": "MAV01",
+      "longName": "LA MURE-SUSVILLE-LA MOTTE D'AVEILLANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MAV03",
+      "gtfsId": "C38:MAV03",
+      "shortName": "MAV03",
+      "longName": "LA MOTTE ST MARTIN-LA MOTTE D'AVEILLANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MAV04",
+      "gtfsId": "C38:MAV04",
+      "shortName": "MAV04",
+      "longName": "LAFFREY-LA MOTTE D'AVEILLANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN01",
+      "gtfsId": "C38:MEN01",
+      "shortName": "MEN01",
+      "longName": "ST JEAN D'HERANS-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN02",
+      "gtfsId": "C38:MEN02",
+      "shortName": "MEN02",
+      "longName": "TREMINIS-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN03",
+      "gtfsId": "C38:MEN03",
+      "shortName": "MEN03",
+      "longName": "TREMINIS-PREBOIS-ST BAUDILLE-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN04",
+      "gtfsId": "C38:MEN04",
+      "shortName": "MEN04",
+      "longName": "GRENOBLE-MENS (INTERNES)",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN05",
+      "gtfsId": "C38:MEN05",
+      "shortName": "MEN05",
+      "longName": "CHICHILIANNE-CLELLES-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN06",
+      "gtfsId": "C38:MEN06",
+      "shortName": "MEN06",
+      "longName": "LAVARS-CORNILLON EN TRIEVES-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN07",
+      "gtfsId": "C38:MEN07",
+      "shortName": "MEN07",
+      "longName": "ST BAUDILLE ET PIPET (LE PERRIER)-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN08",
+      "gtfsId": "C38:MEN08",
+      "shortName": "MEN08",
+      "longName": "ST BAUDILLE ET PIPET-MENGLAS-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN09",
+      "gtfsId": "C38:MEN09",
+      "shortName": "MEN09",
+      "longName": "ST MAURICE EN TRIEVES-PREBOIS-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN10",
+      "gtfsId": "C38:MEN10",
+      "shortName": "MEN10",
+      "longName": "CORDEAC-SAINT SEBASTIEN-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MEN11",
+      "gtfsId": "C38:MEN11",
+      "shortName": "MEN11",
+      "longName": "SER CLAPI-MENTAYRE-MENS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MOI01",
+      "gtfsId": "C38:MOI01",
+      "shortName": "MOI01",
+      "longName": "POLIENAS-LA RIVIERE-ST QUENTIN-MOIRANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MON01",
+      "gtfsId": "C38:MON01",
+      "shortName": "MON01",
+      "longName": "ROISSARD-St MICHEL- PORTES- MONESTIER C.",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MON02",
+      "gtfsId": "C38:MON02",
+      "shortName": "MON02",
+      "longName": "GRESSE-MONESTIER DE CLERMONT",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MON03",
+      "gtfsId": "C38:MON03",
+      "shortName": "MON03",
+      "longName": "MIRIBEL LANCHATRE-ST GUILLAUME-MONESTIER",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MON04",
+      "gtfsId": "C38:MON04",
+      "shortName": "MON04",
+      "longName": "ST MARTIN DE LA CLUZE-SINARD-MONESTIER D",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MON05",
+      "gtfsId": "C38:MON05",
+      "shortName": "MON05",
+      "longName": "CHATEAU BERNARD-MONESTIER DE CLERMONT",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MON07",
+      "gtfsId": "C38:MON07",
+      "shortName": "MON07",
+      "longName": "(TAD) CHATEAU BERNARD-MONESTIER DE CLER.",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC01",
+      "gtfsId": "C38:MRC01",
+      "shortName": "MRC01",
+      "longName": "QUINCIEU-ST VERAND-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC02",
+      "gtfsId": "C38:MRC02",
+      "shortName": "MRC02",
+      "longName": "CHEVRIERES-CHATTE-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC03",
+      "gtfsId": "C38:MRC03",
+      "shortName": "MRC03",
+      "longName": "ST APPOLINARD-CHATTE-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC04",
+      "gtfsId": "C38:MRC04",
+      "shortName": "MRC04",
+      "longName": "MURINAIS-CHEVRIERES-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC05",
+      "gtfsId": "C38:MRC05",
+      "shortName": "MRC05",
+      "longName": "ST ANTOINE-MONTAGNE-CHATTE-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC06",
+      "gtfsId": "C38:MRC06",
+      "shortName": "MRC06",
+      "longName": "ST BONNET-CHATTE-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC07",
+      "gtfsId": "C38:MRC07",
+      "shortName": "MRC07",
+      "longName": "ST LATTIER-CHATTE-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC08",
+      "gtfsId": "C38:MRC08",
+      "shortName": "MRC08",
+      "longName": "ST HILAIRE-LA SONE-CHATTE-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC09",
+      "gtfsId": "C38:MRC09",
+      "shortName": "MRC09",
+      "longName": "ST PIERRE-IZERON-ST SAUVEUR-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC10",
+      "gtfsId": "C38:MRC10",
+      "shortName": "MRC10",
+      "longName": "ST GERVAIS-ROVON-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC11",
+      "gtfsId": "C38:MRC11",
+      "shortName": "MRC11",
+      "longName": "ROMANS-CHATTE-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC12",
+      "gtfsId": "C38:MRC12",
+      "shortName": "MRC12",
+      "longName": "CHANTESSE-ND L'OSIER-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MRC13",
+      "gtfsId": "C38:MRC13",
+      "shortName": "MRC13",
+      "longName": "POLIENAS-L'ALBENC-VINAY-ST MARCELLIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR01",
+      "gtfsId": "C38:MUR01",
+      "shortName": "MUR01",
+      "longName": "COGNET-PONSONNAS-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR05",
+      "gtfsId": "C38:MUR05",
+      "shortName": "MUR05",
+      "longName": "LAFFREY-ND DE VAULX-LA MURE (marche)",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR06",
+      "gtfsId": "C38:MUR06",
+      "shortName": "MUR06",
+      "longName": "MARCIEU-MAYRES SAVEL-PRUNIERES-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR07",
+      "gtfsId": "C38:MUR07",
+      "shortName": "MUR07",
+      "longName": "NANTES EN RATIER-ST HONORE-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR08",
+      "gtfsId": "C38:MUR08",
+      "shortName": "MUR08",
+      "longName": "VIZILLE-LAFFREY-SUSVILLE-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR11",
+      "gtfsId": "C38:MUR11",
+      "shortName": "MUR11",
+      "longName": "ST JEAN DE VAULX-ND DE VAULX-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR12",
+      "gtfsId": "C38:MUR12",
+      "shortName": "MUR12",
+      "longName": "LAFFREY-CHOLONGE-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR13",
+      "gtfsId": "C38:MUR13",
+      "shortName": "MUR13",
+      "longName": "ORIS EN RATIER-SIEVOZ-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR14",
+      "gtfsId": "C38:MUR14",
+      "shortName": "MUR14",
+      "longName": "ST PIERRE DE MEAROTZ-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR16",
+      "gtfsId": "C38:MUR16",
+      "shortName": "MUR16",
+      "longName": "CHANTEPERIER-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:MUR18",
+      "gtfsId": "C38:MUR18",
+      "shortName": "MUR18",
+      "longName": "(TAD) CHANTELOUVE-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:NIV02",
+      "gtfsId": "C38:NIV02",
+      "shortName": "NIV02",
+      "longName": "ST GEOIRE VNE-PT BEAUVOISIN-N.VERMELLE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PALMA",
+      "gtfsId": "C38:PALMA",
+      "shortName": "PALMA",
+      "longName": "PRIMAIRE VAUJANY-ALLEMONT",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PAPPB",
+      "gtfsId": "C38:PAPPB",
+      "shortName": "PAPPB",
+      "longName": "RPI ST APPOLINARD-CHEVRIERES-MURINAIS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PAPRA",
+      "gtfsId": "C38:PAPRA",
+      "shortName": "PAPRA",
+      "longName": "PRIMAIRE APPRIEU",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PAUTA",
+      "gtfsId": "C38:PAUTA",
+      "shortName": "PAUTA",
+      "longName": "PRIMAIRE AUTRANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PAVIA",
+      "gtfsId": "C38:PAVIA",
+      "shortName": "PAVIA",
+      "longName": "RPI AVIGNONET-ST MARTIN DE LA CLUZE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBDOA",
+      "gtfsId": "C38:PBDOA",
+      "shortName": "PBDOA",
+      "longName": "LA PAUTE-BOURG D'OISANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBE08",
+      "gtfsId": "C38:PBE08",
+      "shortName": "PBE08",
+      "longName": "STE BLANDINE-V.VIRIEU-PT DE BEAUVOISIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBE11",
+      "gtfsId": "C38:PBE11",
+      "shortName": "PBE11",
+      "longName": "PALADRU-PRESSINS-PONT DE BEAUVOISIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBE12",
+      "gtfsId": "C38:PBE12",
+      "shortName": "PBE12",
+      "longName": "MONTFERRAT-LA B.DIVISIN-PT BEAUVOISIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBE13",
+      "gtfsId": "C38:PBE13",
+      "shortName": "PBE13",
+      "longName": "ST ONDRAS-LES ABRETS-PONT DE BEAUVOISIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBE14",
+      "gtfsId": "C38:PBE14",
+      "shortName": "PBE14",
+      "longName": "VELANNE-PONT DE BEAUVOISIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBE15",
+      "gtfsId": "C38:PBE15",
+      "shortName": "PBE15",
+      "longName": "ST L. PONT-ENTRE 2 GUIERS-PT BEAUVOISIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBE16",
+      "gtfsId": "C38:PBE16",
+      "shortName": "PBE16",
+      "longName": "ST GEOIRE EN VALDAINE-PONT DE BEAUVOISIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PBLIA",
+      "gtfsId": "C38:PBLIA",
+      "shortName": "PBLIA",
+      "longName": "TECHE-BEAULIEU",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PCHEA",
+      "gtfsId": "C38:PCHEA",
+      "shortName": "PCHEA",
+      "longName": "DESSERTE CHATTE COTEAU",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PCHEB",
+      "gtfsId": "C38:PCHEB",
+      "shortName": "PCHEB",
+      "longName": "DESSERTE CHATTE PLAINE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PCLEA",
+      "gtfsId": "C38:PCLEA",
+      "shortName": "PCLEA",
+      "longName": "PRIMAIRE LE PERCY-CLELLES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PCOGA",
+      "gtfsId": "C38:PCOGA",
+      "shortName": "PCOGA",
+      "longName": "MALLEVAL-COGNIN LES GORGES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PCRPA",
+      "gtfsId": "C38:PCRPA",
+      "shortName": "PCRPA",
+      "longName": "PRIMAIRE AMBEL-CORPS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PCRPB",
+      "gtfsId": "C38:PCRPB",
+      "shortName": "PCRPB",
+      "longName": "PRIMAIRE STE LUCE-COTES DE CORPS-CORPS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PCRSA",
+      "gtfsId": "C38:PCRSA",
+      "shortName": "PCRSA",
+      "longName": "CRAS-MORETTE-VATILIEU-ND L'OSIER",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PER01",
+      "gtfsId": "C38:PER01",
+      "shortName": "PER01",
+      "longName": "CHATELUS-CHORANCHE-PT EN ROYANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PER02",
+      "gtfsId": "C38:PER02",
+      "shortName": "PER02",
+      "longName": "RENCUREL-PT EN ROYANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PER03",
+      "gtfsId": "C38:PER03",
+      "shortName": "PER03",
+      "longName": "PRESLES-CHORANCHE-PT EN ROYANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PER04",
+      "gtfsId": "C38:PER04",
+      "shortName": "PER04",
+      "longName": "IZERON-ST ANDRE-PT EN ROYANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PER05",
+      "gtfsId": "C38:PER05",
+      "shortName": "PER05",
+      "longName": "ST P DE CHERENNES-ST ROMANS-PT EN ROYANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PGERA",
+      "gtfsId": "C38:PGERA",
+      "shortName": "PGERA",
+      "longName": "ST GERVAIS-ROVON-COGNIN",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PHUEA",
+      "gtfsId": "C38:PHUEA",
+      "shortName": "PHUEA",
+      "longName": "PRIMAIRE L'ALPE-D'HUEZ",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PLAFA",
+      "gtfsId": "C38:PLAFA",
+      "shortName": "PLAFA",
+      "longName": "PRIM. LE SAPPEY-LAFFREY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PLATA",
+      "gtfsId": "C38:PLATA",
+      "shortName": "PLATA",
+      "longName": "DESSERTE ST LATTIER COTEAUX",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PLATB",
+      "gtfsId": "C38:PLATB",
+      "shortName": "PLATB",
+      "longName": "DESSERTE ST LATTIER PLAINE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PLGAA",
+      "gtfsId": "C38:PLGAA",
+      "shortName": "PLGAA",
+      "longName": "PRIMAIRE LIVET ET GAVET",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PMEAA",
+      "gtfsId": "C38:PMEAA",
+      "shortName": "PMEAA",
+      "longName": "PRIMAIRE MEAUDRE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PMIRA",
+      "gtfsId": "C38:PMIRA",
+      "shortName": "PMIRA",
+      "longName": "PRIMAIRES MIRIBEL LES ECHELLES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PMOTA",
+      "gtfsId": "C38:PMOTA",
+      "shortName": "PMOTA",
+      "longName": "PRIMAIRE LES MOTTES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PMPEA",
+      "gtfsId": "C38:PMPEA",
+      "shortName": "PMPEA",
+      "longName": "RPI LALLEY-ST MAURICE-MONESTIER DU PERCY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PMURA",
+      "gtfsId": "C38:PMURA",
+      "shortName": "PMURA",
+      "longName": "MARCIEU-MAYRES SAVEL-LA MURE ECOLES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PMURB",
+      "gtfsId": "C38:PMURB",
+      "shortName": "PMURB",
+      "longName": "PRIMAIRE PONSONNAS-LA MURE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PPBAA",
+      "gtfsId": "C38:PPBAA",
+      "shortName": "PPBAA",
+      "longName": "PRIMAIRE ST JEAN D'AVELANNE-PONT DE B.",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PPICA",
+      "gtfsId": "C38:PPICA",
+      "shortName": "PPICA",
+      "longName": "RPC PIERRE CHATEL",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PRCLA",
+      "gtfsId": "C38:PRCLA",
+      "shortName": "PRCLA",
+      "longName": "PRIMAIRE RENCUREL",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PRE01",
+      "gtfsId": "C38:PRE01",
+      "shortName": "PRE01",
+      "longName": "LE PERCY-PREBOIS (CORRES. MENS)",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PRENA",
+      "gtfsId": "C38:PRENA",
+      "shortName": "PRENA",
+      "longName": "PRIMAIRE CRIEL DE RENAGE-RENAGE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSALA",
+      "gtfsId": "C38:PSALA",
+      "shortName": "PSALA",
+      "longName": "PRIMAIRE QUET EN BEAUMONT-LA SALLE EN BE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSARA",
+      "gtfsId": "C38:PSARA",
+      "shortName": "PSARA",
+      "longName": "AUBERIVES-ST ANDRE EN ROYANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSATA",
+      "gtfsId": "C38:PSATA",
+      "shortName": "PSATA",
+      "longName": "DESSERTE ST ANTOINE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSBCA",
+      "gtfsId": "C38:PSBCA",
+      "shortName": "PSBCA",
+      "longName": "ST BONNET DE CHAVAGNE-MONTAGNE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSHRA",
+      "gtfsId": "C38:PSHRA",
+      "shortName": "PSHRA",
+      "longName": "DESSERTE ST HILAIRE DU ROSIER",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSINA",
+      "gtfsId": "C38:PSINA",
+      "shortName": "PSINA",
+      "longName": "TREFFORT-SINARD (CORRESP. COLLEGE)",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSJRA",
+      "gtfsId": "C38:PSJRA",
+      "shortName": "PSJRA",
+      "longName": "ST JULIEN DE RATZ-ST JOSEPH DE RIVIERE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSJVA",
+      "gtfsId": "C38:PSJVA",
+      "shortName": "PSJVA",
+      "longName": "RPI NOTRE DAME DE VAULX-ST JEAN DE VAULX",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSLBA",
+      "gtfsId": "C38:PSLBA",
+      "shortName": "PSLBA",
+      "longName": "PRIMAIRE ST LAURENT EN BEAUMONT",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSMTA",
+      "gtfsId": "C38:PSMTA",
+      "shortName": "PSMTA",
+      "longName": "PRIMAIRE MONESTIER DU PERCY-ST MAURICE E",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSNEA",
+      "gtfsId": "C38:PSNEA",
+      "shortName": "PSNEA",
+      "longName": "SERRE NERPOL-CHASSELAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSPCA",
+      "gtfsId": "C38:PSPCA",
+      "shortName": "PSPCA",
+      "longName": "PRIMAIRE ST PIERRE DE CHARTREUSE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSQIA",
+      "gtfsId": "C38:PSQIA",
+      "shortName": "PSQIA",
+      "longName": "PRIMAIRE ST QUENTIN SUR ISERE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSTHA",
+      "gtfsId": "C38:PSTHA",
+      "shortName": "PSTHA",
+      "longName": "DESSERTE CHOLONGE-ST THEOFFREY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSUSA",
+      "gtfsId": "C38:PSUSA",
+      "shortName": "PSUSA",
+      "longName": "PRIMAIRE SUSVILLE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PSVEA",
+      "gtfsId": "C38:PSVEA",
+      "shortName": "PSVEA",
+      "longName": "DESSERTE ST VERAND",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PTECA",
+      "gtfsId": "C38:PTECA",
+      "shortName": "PTECA",
+      "longName": "BEAULIEU-TECHE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PTREA",
+      "gtfsId": "C38:PTREA",
+      "shortName": "PTREA",
+      "longName": "PRIMAIRE CHATEAU BAS-TREMINIS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVAGA",
+      "gtfsId": "C38:PVAGA",
+      "shortName": "PVAGA",
+      "longName": "RPI VALENCOGNE-ST ONDRAS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVALA",
+      "gtfsId": "C38:PVALA",
+      "shortName": "PVALA",
+      "longName": "CHANTEPERIER-ENTRAIGUES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVARA",
+      "gtfsId": "C38:PVARA",
+      "shortName": "PVARA",
+      "longName": "DESSERTE VARACIEUX COTEAUX",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVARB",
+      "gtfsId": "C38:PVARB",
+      "shortName": "PVARB",
+      "longName": "DESSERTE VARACIEUX",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVBOA",
+      "gtfsId": "C38:PVBOA",
+      "shortName": "PVBOA",
+      "longName": "PRIMAIRE PANISSAGE-BLANDIN-VAL DE VIRIEU",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVBOB",
+      "gtfsId": "C38:PVBOB",
+      "shortName": "PVBOB",
+      "longName": "PRIMAIRE CHASSIGNIEU-VAL DE VIRIEU",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVILA",
+      "gtfsId": "C38:PVILA",
+      "shortName": "PVILA",
+      "longName": "PRIMAIRE VILLE VIEILLE-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVILB",
+      "gtfsId": "C38:PVILB",
+      "shortName": "PVILB",
+      "longName": "PRIMAIRE LES POUTEILS-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVILC",
+      "gtfsId": "C38:PVILC",
+      "shortName": "PVILC",
+      "longName": "PRIMAIRE LES JARRANDS-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVINA",
+      "gtfsId": "C38:PVINA",
+      "shortName": "PVINA",
+      "longName": "QUINCIEU-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:PVSCA",
+      "gtfsId": "C38:PVSCA",
+      "shortName": "PVSCA",
+      "longName": "PRIMAIRE VENOSC",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:RAV01",
+      "gtfsId": "C38:RAV01",
+      "shortName": "RAV01",
+      "longName": "GONCELIN-PONTCHARRA-LA RAVOIRE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:RIV01",
+      "gtfsId": "C38:RIV01",
+      "shortName": "RIV01",
+      "longName": "CRIEL DE RENAGE-RIVES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:RIV02",
+      "gtfsId": "C38:RIV02",
+      "shortName": "RIV02",
+      "longName": "RENAGE-RIVES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:RIV03",
+      "gtfsId": "C38:RIV03",
+      "shortName": "RIV03",
+      "longName": "IZEAUX-BEAUCROISSANT-RIVES COLLEGE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:RIV04",
+      "gtfsId": "C38:RIV04",
+      "shortName": "RIV04",
+      "longName": "CHABONS-APPRIEU-RIVES",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:ROM02",
+      "gtfsId": "C38:ROM02",
+      "shortName": "ROM02",
+      "longName": "IZERON-ST ROMANS-ST MARCELLIN-ROMANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:SEG02",
+      "gtfsId": "C38:SEG02",
+      "shortName": "SEG02",
+      "longName": "COTEAUX DE ST ETIENNE DE ST GEOIRS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:SHE01",
+      "gtfsId": "C38:SHE01",
+      "shortName": "SHE01",
+      "longName": "CORDEAC-ST SEBASTIEN-ST JEAN D'HERANS (C",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:SHN01",
+      "gtfsId": "C38:SHN01",
+      "shortName": "SHN01",
+      "longName": "COMBOURSIERE-FUGIERES-ST HONORE (COR. LA",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:SJM03",
+      "gtfsId": "C38:SJM03",
+      "shortName": "SJM03",
+      "longName": "ST GERVAIS-VINAY-POLIENAS-ST JEAN DE M.",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:SLP01",
+      "gtfsId": "C38:SLP01",
+      "shortName": "SLP01",
+      "longName": "MIRIBEL LES ECHELLES-ST LAURENT DU PONT",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:SLP02",
+      "gtfsId": "C38:SLP02",
+      "shortName": "SLP02",
+      "longName": "MIRIBEL (LES BACHES)-ST LAURENT DU PONT",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:SLP03",
+      "gtfsId": "C38:SLP03",
+      "shortName": "SLP03",
+      "longName": "ST PIERRE DE CHARTREUSE-ST LAURENT(Corr)",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:SLP04",
+      "gtfsId": "C38:SLP04",
+      "shortName": "SLP04",
+      "longName": "LES BOURDOIRES-ST LAURENT DU PONT COLLEG",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:T40",
+      "gtfsId": "C38:T40",
+      "shortName": "T40",
+      "longName": "ST PIERRE DE CHARTREUSE-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T41",
+      "gtfsId": "C38:T41",
+      "shortName": "T41",
+      "longName": "VOIRON-CHAMBERY",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T42",
+      "gtfsId": "C38:T42",
+      "shortName": "T42",
+      "longName": "PONT DE BEAUVOISIN-VOIRON",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T43",
+      "gtfsId": "C38:T43",
+      "shortName": "T43",
+      "longName": "LES ABRETS-VOIRON",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T44",
+      "gtfsId": "C38:T44",
+      "shortName": "T44",
+      "longName": "ST PIERRE D'ENTREMONT-ST LAURENT DU PONT",
+      "color": "ffda00",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T50",
+      "gtfsId": "C38:T50",
+      "shortName": "T50",
+      "longName": "BEAUREPAIRE-MOIRANS-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T51",
+      "gtfsId": "C38:T51",
+      "shortName": "T51",
+      "longName": "LA COTE ST ANDRE-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T55",
+      "gtfsId": "C38:T55",
+      "shortName": "T55",
+      "longName": "LA COTE ST ANDRE-RIVES-VOIRON",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T56",
+      "gtfsId": "C38:T56",
+      "shortName": "T56",
+      "longName": "LA COTE ST ANDRE-APPRIEU-VOIRON",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T60",
+      "gtfsId": "C38:T60",
+      "shortName": "T60",
+      "longName": "PONT EN ROYANS-GRENOBLE",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T61",
+      "gtfsId": "C38:T61",
+      "shortName": "T61",
+      "longName": "PONT EN ROYANS-ST ROMANS-ST MARCELLIN",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T62",
+      "gtfsId": "C38:T62",
+      "shortName": "T62",
+      "longName": "ST MARCELLIN-MOIRANS-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T63",
+      "gtfsId": "C38:T63",
+      "shortName": "T63",
+      "longName": "ROYBON-ST MARCELLIN",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T64",
+      "gtfsId": "C38:T64",
+      "shortName": "T64",
+      "longName": "CORRENCON EN VERCORS-GRENOBLE via ENGINS",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T65",
+      "gtfsId": "C38:T65",
+      "shortName": "T65",
+      "longName": "LANS EN VERCORS-ST NIZIER-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T66",
+      "gtfsId": "C38:T66",
+      "shortName": "T66",
+      "longName": "VILLARD DE LANS-MEAUDRE-AUTRANS-LANS",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T70",
+      "gtfsId": "C38:T70",
+      "shortName": "T70",
+      "longName": "(TAD T71) BRG D'OISANS-ALLEMONT-VAUJANY",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T71",
+      "gtfsId": "C38:T71",
+      "shortName": "T71",
+      "longName": "BOURG D'OISANS-ALLEMONT-VAUJANY",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T73",
+      "gtfsId": "C38:T73",
+      "shortName": "T73",
+      "longName": "LES DEUX ALPES-BOURG D'OISANS-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T75",
+      "gtfsId": "C38:T75",
+      "shortName": "T75",
+      "longName": "BOURG D'OISANS-VIZILLE-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T76",
+      "gtfsId": "C38:T76",
+      "shortName": "T76",
+      "longName": "L'ALPE D'HUEZ-BOURG D'OISANS-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T77",
+      "gtfsId": "C38:T77",
+      "shortName": "T77",
+      "longName": "BOURG D'OISANS-LA BERARDE",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T83",
+      "gtfsId": "C38:T83",
+      "shortName": "T83",
+      "longName": "CHAMBERY-CHAPAREILLAN-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T90",
+      "gtfsId": "C38:T90",
+      "shortName": "T90",
+      "longName": "CORPS-LA MURE-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T91",
+      "gtfsId": "C38:T91",
+      "shortName": "T91",
+      "longName": "GRENOBLE-GAP",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T92",
+      "gtfsId": "C38:T92",
+      "shortName": "T92",
+      "longName": "LA MURE-LA MOTTE D'AVEILLANS-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T93",
+      "gtfsId": "C38:T93",
+      "shortName": "T93",
+      "longName": "L'ALPE DU GRAND SERRE-LA MURE",
+      "color": "65b363",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T94",
+      "gtfsId": "C38:T94",
+      "shortName": "T94",
+      "longName": "MENS-LA MURE",
+      "color": "ffda00",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:T95",
+      "gtfsId": "C38:T95",
+      "shortName": "T95",
+      "longName": "MENS-MONESTIER DE CLERMONT-GRENOBLE",
+      "color": "f29549",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "C38_AUTRE"
+    },
+    {
+      "id": "C38:TUL01",
+      "gtfsId": "C38:TUL01",
+      "shortName": "TUL01",
+      "longName": "MONTAUD-TULLINS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:TUL02",
+      "gtfsId": "C38:TUL02",
+      "shortName": "TUL02",
+      "longName": "LA RIVIERE-ST QUENTIN-TULLINS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:TUL03",
+      "gtfsId": "C38:TUL03",
+      "shortName": "TUL03",
+      "longName": "POLIENAS-TULLINS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:TUL04",
+      "gtfsId": "C38:TUL04",
+      "shortName": "TUL04",
+      "longName": "MORETTE-CRAS-TULLINS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIF02",
+      "gtfsId": "C38:VIF02",
+      "shortName": "VIF02",
+      "longName": "ST MARTIN DE LA CLUZE-VIF (PRIMAIRE-COLL",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIL01",
+      "gtfsId": "C38:VIL01",
+      "shortName": "VIL01",
+      "longName": "AUTRANS-MEAUDRE-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIL02",
+      "gtfsId": "C38:VIL02",
+      "shortName": "VIL02",
+      "longName": "AUTRANS-MEAUDRE-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIL03",
+      "gtfsId": "C38:VIL03",
+      "shortName": "VIL03",
+      "longName": "AUTRANS-MEAUDRE-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIL04",
+      "gtfsId": "C38:VIL04",
+      "shortName": "VIL04",
+      "longName": "RENCUREL-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIL05",
+      "gtfsId": "C38:VIL05",
+      "shortName": "VIL05",
+      "longName": "ENGINS-LANS EN VERCORS-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIL06",
+      "gtfsId": "C38:VIL06",
+      "shortName": "VIL06",
+      "longName": "BOIS BARBU-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIL07",
+      "gtfsId": "C38:VIL07",
+      "shortName": "VIL07",
+      "longName": "COTE 2000-CORRENÇON-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIL08",
+      "gtfsId": "C38:VIL08",
+      "shortName": "VIL08",
+      "longName": "ST NIZIER-LANS EN V.-VILLARD DE LANS",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIN01",
+      "gtfsId": "C38:VIN01",
+      "shortName": "VIN01",
+      "longName": "QUINCIEU-SERRE NERPOL-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIN02",
+      "gtfsId": "C38:VIN02",
+      "shortName": "VIN02",
+      "longName": "ND DE L'OSIER-VATILIEU-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIN03",
+      "gtfsId": "C38:VIN03",
+      "shortName": "VIN03",
+      "longName": "VINAY CAMPING CHARROI-SERRE NERPOL-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIN04",
+      "gtfsId": "C38:VIN04",
+      "shortName": "VIN04",
+      "longName": "COGNIN-ROVON-ST GERVAIS-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIN05",
+      "gtfsId": "C38:VIN05",
+      "shortName": "VIN05",
+      "longName": "VARACIEUX-CHASSELAY-SERRE NERPOL-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIN06",
+      "gtfsId": "C38:VIN06",
+      "shortName": "VIN06",
+      "longName": "VARACIEUX STADE-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIN07",
+      "gtfsId": "C38:VIN07",
+      "shortName": "VIN07",
+      "longName": "BEAULIEU-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIN08",
+      "gtfsId": "C38:VIN08",
+      "shortName": "VIN08",
+      "longName": "CHANTESSE-L'ALBENC-VINAY",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIZ03",
+      "gtfsId": "C38:VIZ03",
+      "shortName": "VIZ03",
+      "longName": "BOURG D'OISANS-VIZILLE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIZ06",
+      "gtfsId": "C38:VIZ06",
+      "shortName": "VIZ06",
+      "longName": "LA MURE-LAFFREY-VIZILLE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VIZ07",
+      "gtfsId": "C38:VIZ07",
+      "shortName": "VIZ07",
+      "longName": "LA MURE-LA MOTTE D'AVEILLANS-VIZILLE",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VOI01",
+      "gtfsId": "C38:VOI01",
+      "shortName": "VOI01",
+      "longName": "LE RIVIER D'APPRIEU-REAUMONT",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VOI06",
+      "gtfsId": "C38:VOI06",
+      "shortName": "VOI06",
+      "longName": "BIZONNES-OYEU-VOIRON",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "C38:VOI07",
+      "gtfsId": "C38:VOI07",
+      "shortName": "VOI07",
+      "longName": "BEVENAIS-COLOMBE-VOIRON",
+      "color": "37333a",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:1",
+      "gtfsId": "TPV:1000089",
+      "shortName": "1",
+      "longName": "LEPRINCE RINGUET - PAVIOT",
+      "color": "F72B2B",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Urbaines"
+    },
+    {
+      "id": "TPV:2",
+      "gtfsId": "TPV:1000091",
+      "shortName": "2",
+      "longName": "PARVIS - COUBLEVIE",
+      "color": "06B1EA",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Urbaines"
+    },
+    {
+      "id": "TPV:3",
+      "gtfsId": "TPV:1000093",
+      "shortName": "3",
+      "longName": "FATON - CHAMPFEUILLET",
+      "color": "0ABD58",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Urbaines"
+    },
+    {
+      "id": "TPV:4",
+      "gtfsId": "TPV:1000094",
+      "shortName": "4",
+      "longName": "ST JEAN DE MOIRANS - HOPITAL",
+      "color": "F0E924",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "Urbaines"
+    },
+    {
+      "id": "TPV:A",
+      "gtfsId": "TPV:1000001",
+      "shortName": "A",
+      "longName": "TULLINS - VOUREY - MOIRANS - VOIRON",
+      "color": "052AB3",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:D",
+      "gtfsId": "TPV:1000023",
+      "shortName": "D",
+      "longName": "MIRIBEL EGLISE - VOIRON GARE SUD",
+      "color": "0528B4",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:E",
+      "gtfsId": "TPV:1000027",
+      "shortName": "E",
+      "longName": "ST GEOIRE COTAGON - VOIRON GARE NORD",
+      "color": "0528B4",
+      "textColor": "FAFAFA",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:F",
+      "gtfsId": "TPV:1000028",
+      "shortName": "F",
+      "longName": "MONTFERRAT VILLAGE - VOIRON GARE NORD",
+      "color": "0528B4",
+      "textColor": "FAFAFA",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:G",
+      "gtfsId": "TPV:1000121",
+      "shortName": "G",
+      "longName": "G PALADRU VOIRON",
+      "color": "0528B4",
+      "textColor": "FAFAFA",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:L",
+      "gtfsId": "TPV:1000035",
+      "shortName": "L",
+      "longName": "RIVES - VOIRON GARE SUD",
+      "color": "0528B4",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:N",
+      "gtfsId": "TPV:1000039",
+      "shortName": "N",
+      "longName": "LA BUISSE GIRATOIRE - VOREPPE L ARMAND",
+      "color": "0528B4",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:W",
+      "gtfsId": "TPV:1000088",
+      "shortName": "W",
+      "longName": "VOIRON - LA BUISSE - VOREPPE - FONTANIL",
+      "color": "1D389A",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:20",
+      "gtfsId": "TPV:1000092",
+      "shortName": "20",
+      "longName": "MOIRANS 8 MAI 1945 - VOREPPE L ARMAND",
+      "color": "F570BE",
+      "textColor": "FAFAFA",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:LAC",
+      "gtfsId": "TPV:1000036",
+      "shortName": "LAC",
+      "longName": "VOIRON GARE NORD - PALADRU VILLAGE",
+      "color": "0528B4",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "Interurbaines"
+    },
+    {
+      "id": "TPV:BE11",
+      "gtfsId": "TPV:1000002",
+      "shortName": "BE11",
+      "longName": "REAUMONT LE GUICHARD - MOIRANS BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE12",
+      "gtfsId": "TPV:1000003",
+      "shortName": "BE12",
+      "longName": "APPRIEU LE RIVIER - MOIRANS BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE13",
+      "gtfsId": "TPV:1000004",
+      "shortName": "BE13",
+      "longName": "RIVES LES ABATTOIRS - MOIRANS BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE21",
+      "gtfsId": "TPV:1000005",
+      "shortName": "BE21",
+      "longName": "TULLINS CONDORCET - MOIRANS P. BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE22",
+      "gtfsId": "TPV:1000006",
+      "shortName": "BE22",
+      "longName": "TULLINS GARE SNCF - MOIRANS P. BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE31",
+      "gtfsId": "TPV:1000007",
+      "shortName": "BE31",
+      "longName": "VOREPPE L'ARCADE - MOIRANS P. BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE32",
+      "gtfsId": "TPV:1000008",
+      "shortName": "BE32",
+      "longName": "VOREPPE VOLOUISE - MOIRANS P. BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE33",
+      "gtfsId": "TPV:1000009",
+      "shortName": "BE33",
+      "longName": "FONTANIL CROIX ROCHETTE - MOIRANS BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE34",
+      "gtfsId": "TPV:1000010",
+      "shortName": "BE34",
+      "longName": "MOIRANS ESPACE JAIL - ST JEAN - BEGHIN",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:BE35",
+      "gtfsId": "TPV:1000011",
+      "shortName": "BE35",
+      "longName": "MOIRANS BEGHIN  - LE FONTANIL F. DOLTO",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH41",
+      "gtfsId": "TPV:1000012",
+      "shortName": "CH41",
+      "longName": "MERLAS PICOUDIERE - CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH51",
+      "gtfsId": "TPV:1000013",
+      "shortName": "CH51",
+      "longName": "ST SULPICE RIVOIRES - CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH61",
+      "gtfsId": "TPV:1000014",
+      "shortName": "CH61",
+      "longName": "LE PIN  LES ALLEX - CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH62",
+      "gtfsId": "TPV:1000015",
+      "shortName": "CH62",
+      "longName": "PALADRU TROIS CHENES - CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH63",
+      "gtfsId": "TPV:1000016",
+      "shortName": "CH63",
+      "longName": "MONTFERRAT LE VERNEY - CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH64",
+      "gtfsId": "TPV:1000017",
+      "shortName": "CH64",
+      "longName": "CHARAVINES MONTFOLLET - CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH65",
+      "gtfsId": "TPV:1000018",
+      "shortName": "CH65",
+      "longName": "CHARAVINES PLACE MARCHE  CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH66",
+      "gtfsId": "TPV:1000019",
+      "shortName": "CH66",
+      "longName": "BILIEU PETIT BILIEU - CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CH67",
+      "gtfsId": "TPV:1000020",
+      "shortName": "CH67",
+      "longName": "LE PIN ST CHRISTOPHE - CHIRENS COLLEGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CO21",
+      "gtfsId": "TPV:1000021",
+      "shortName": "CO21",
+      "longName": "TULLINS GOUY - CAMILLE DESMOULINS",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:CO22",
+      "gtfsId": "TPV:1000022",
+      "shortName": "CO22",
+      "longName": "TULLINS ST J. CHEPY - COLLEGE CONDORCET",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:DE11",
+      "gtfsId": "TPV:1000024",
+      "shortName": "DE11",
+      "longName": "ST BLAISE RAVIGNHOUSE - RIVES DESNOS",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:DE12",
+      "gtfsId": "TPV:1000025",
+      "shortName": "DE12",
+      "longName": "REAUMONT H. FERROVIAIRE - RIVES DESNOS",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:DE13",
+      "gtfsId": "TPV:1000026",
+      "shortName": "DE13",
+      "longName": "REAUMONT LE BESSEY - RIVES DESNOS",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:GA71",
+      "gtfsId": "TPV:1000029",
+      "shortName": "GA71",
+      "longName": "LA MURETTE VILLAGE - VOIRON LA GARENNE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:GA72",
+      "gtfsId": "TPV:1000030",
+      "shortName": "GA72",
+      "longName": "ST CASSIEN MALOZA - VOIRON LA GARENNE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:GA73",
+      "gtfsId": "TPV:1000031",
+      "shortName": "GA73",
+      "longName": "MOIRANS PETIT CRIEL - LA GARENNE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:GA74",
+      "gtfsId": "TPV:1000032",
+      "shortName": "GA74",
+      "longName": "VOIRON LAVOIR CRIEL - LA GARENNE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:GA75",
+      "gtfsId": "TPV:1000033",
+      "shortName": "GA75",
+      "longName": "LA MURETTE COURATIERE - VOIRON GARENNE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:GA76",
+      "gtfsId": "TPV:1000034",
+      "shortName": "GA76",
+      "longName": "VOIRON LES TUILIERES - VOIRON LA GARENNE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:MA71",
+      "gtfsId": "TPV:1000037",
+      "shortName": "MA71",
+      "longName": "VOIRON GARE SUD - VOIRON LA MARTELIERE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:ML31",
+      "gtfsId": "TPV:1000038",
+      "shortName": "ML31",
+      "longName": "POMMIERS RD 520 VILLAGE - VOREPPE MAIRIE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM31",
+      "gtfsId": "TPV:1000040",
+      "shortName": "PM31",
+      "longName": "LA BUISSE ECOLE - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM32",
+      "gtfsId": "TPV:1000041",
+      "shortName": "PM32",
+      "longName": "LA BUISSE AFIPH - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM33",
+      "gtfsId": "TPV:1000042",
+      "shortName": "PM33",
+      "longName": "POMMIERS BARNIERS - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM41",
+      "gtfsId": "TPV:1000043",
+      "shortName": "PM41",
+      "longName": "ST AUPRE GD VIVIER - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM42",
+      "gtfsId": "TPV:1000044",
+      "shortName": "PM42",
+      "longName": "MIRIBEL LE VERNEY - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM43",
+      "gtfsId": "TPV:1000045",
+      "shortName": "PM43",
+      "longName": "CROSSEY GATELIERE - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM44",
+      "gtfsId": "TPV:1000046",
+      "shortName": "PM44",
+      "longName": "CROSSEY POMPIERS - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM45",
+      "gtfsId": "TPV:1000047",
+      "shortName": "PM45",
+      "longName": "CROSSEY TOLVON - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PM71",
+      "gtfsId": "TPV:1000048",
+      "shortName": "PM71",
+      "longName": "VOIRON GARE NORD - COUBLEVIE PLAN MENU",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PR11",
+      "gtfsId": "TPV:1000049",
+      "shortName": "PR11",
+      "longName": "REAUMONT BOURG -ST BLAISE MAIRIE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PR41",
+      "gtfsId": "TPV:1000050",
+      "shortName": "PR41",
+      "longName": "ST AUPRE GD VIVIER - ST AUPRE VILLAGE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PR51",
+      "gtfsId": "TPV:1000051",
+      "shortName": "PR51",
+      "longName": "MERLAS PICOUDIERE - ST GEOIRE PLAMPALAIS",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PR52",
+      "gtfsId": "TPV:1000052",
+      "shortName": "PR52",
+      "longName": "ST GEOIRE CONSUOZ ABRIS - LAMBERTIERE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:PR71",
+      "gtfsId": "TPV:1000053",
+      "shortName": "PR71",
+      "longName": "COUBLEVIE RTE DES GORGES - RUE DU 11 NOV",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:SJ11",
+      "gtfsId": "TPV:1000054",
+      "shortName": "SJ11",
+      "longName": "RIVES GARE SNCF - ST JEAN MOIRANS PLACE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:SJ21",
+      "gtfsId": "TPV:1000055",
+      "shortName": "SJ21",
+      "longName": "TULLINS CONDORCET -  ST JEAN PLACE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:SJ31",
+      "gtfsId": "TPV:1000056",
+      "shortName": "SJ31",
+      "longName": "FONTANIL PALLUEL - ST JEAN PLACE",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VE21",
+      "gtfsId": "TPV:1000065",
+      "shortName": "VE21",
+      "longName": "MOIRANS PETIT CRIEL - COLLEGE VERGERON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VE22",
+      "gtfsId": "TPV:1000066",
+      "shortName": "VE22",
+      "longName": "TULLINS CONDORCET - MOIRANS  VERGERON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VE23",
+      "gtfsId": "TPV:1000067",
+      "shortName": "VE23",
+      "longName": "ST JEAN LA MANCHE - MOIRANS LE VERGERON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO11",
+      "gtfsId": "TPV:1000068",
+      "shortName": "VO11",
+      "longName": "RIVES MALADIERE - VOIRON GARE NORD",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO12",
+      "gtfsId": "TPV:1000069",
+      "shortName": "VO12",
+      "longName": "RIVES MALADIERE - VOIRON BRAMERET",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO13",
+      "gtfsId": "TPV:1000070",
+      "shortName": "VO13",
+      "longName": "RENAGE PL CARDINALE - VOIRON GARE SUD",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO14",
+      "gtfsId": "TPV:1000071",
+      "shortName": "VO14",
+      "longName": "RENAGE PL CARDINAL - VOIRON BRAMERET",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO21",
+      "gtfsId": "TPV:1000072",
+      "shortName": "VO21",
+      "longName": "TULLINS GARE SNCF - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO22",
+      "gtfsId": "TPV:1000073",
+      "shortName": "VO22",
+      "longName": "TULLINS CONDORCET - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO23",
+      "gtfsId": "TPV:1000074",
+      "shortName": "VO23",
+      "longName": "TULLINS CONDORCET - VOIRON BRAMERET",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO31",
+      "gtfsId": "TPV:1000075",
+      "shortName": "VO31",
+      "longName": "ST JEAN COLOMBINIERE - VOIRON BRAMERET",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO32",
+      "gtfsId": "TPV:1000076",
+      "shortName": "VO32",
+      "longName": "VOREPPE LOGIS NEUF - VOIRON GARE SUD",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO41",
+      "gtfsId": "TPV:1000077",
+      "shortName": "VO41",
+      "longName": "ST AUPRE TURE - VOIRON GARE SUD",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO42",
+      "gtfsId": "TPV:1000078",
+      "shortName": "VO42",
+      "longName": "CROSSEY GATELIERE - VOIRON GARE SUD",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO43",
+      "gtfsId": "TPV:1000079",
+      "shortName": "VO43",
+      "longName": "MERLAS PICOUDIERE - VOIRON GARE SUD",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO51",
+      "gtfsId": "TPV:1000080",
+      "shortName": "VO51",
+      "longName": "MASSIEU COTE D'AINAN - VOIRON GARE NORD",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO61",
+      "gtfsId": "TPV:1000081",
+      "shortName": "VO61",
+      "longName": "LE PIN LES ALLEX - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO62",
+      "gtfsId": "TPV:1000082",
+      "shortName": "VO62",
+      "longName": "CHARAVINES OFFICE DE TOURISME - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO63",
+      "gtfsId": "TPV:1000083",
+      "shortName": "VO63",
+      "longName": "BILIEU PETIT BILIEU - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO64",
+      "gtfsId": "TPV:1000101",
+      "shortName": "VO64",
+      "longName": "MONTFERRAT VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO71",
+      "gtfsId": "TPV:1000084",
+      "shortName": "VO71",
+      "longName": "LA MURETTE VILLAGE - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO72",
+      "gtfsId": "TPV:1000085",
+      "shortName": "VO72",
+      "longName": "REAUMONT LE CARRET - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO73",
+      "gtfsId": "TPV:1000086",
+      "shortName": "VO73",
+      "longName": "ST BLAISE RTE MURETTE - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:VO74",
+      "gtfsId": "TPV:1000087",
+      "shortName": "VO74",
+      "longName": "REAUMONT LE BESSEY - VOIRON",
+      "color": "F5FF6B",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "SCOL"
+    },
+    {
+      "id": "TPV:TAD-4",
+      "gtfsId": "TPV:1000064",
+      "shortName": "TAD-4",
+      "longName": "HOPITAL - SAINT JEAN DE MOIRANS",
+      "color": "F0AA28",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "TAD"
+    },
+    {
+      "id": "TPV:TAD-C",
+      "gtfsId": "TPV:1000057",
+      "shortName": "TAD-C",
+      "longName": "SAINT JULIEN VILLAGE - VOIRON GARE SUD",
+      "color": "F0AA28",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "TAD"
+    },
+    {
+      "id": "TPV:TAD-D",
+      "gtfsId": "TPV:1000058",
+      "shortName": "TAD-D",
+      "longName": "MERLAS LA CHAPELLE - VOIRON GARE SUD",
+      "color": "F0AA28",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "TAD"
+    },
+    {
+      "id": "TPV:TAD-E",
+      "gtfsId": "TPV:1000059",
+      "shortName": "TAD-E",
+      "longName": "VELANNE LA SAUGE - VOIRON GARE NORD",
+      "color": "F0AA28",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "TAD"
+    },
+    {
+      "id": "TPV:TAD-F",
+      "gtfsId": "TPV:1000060",
+      "shortName": "TAD-F",
+      "longName": "MONTFERRAT VILLAGE - VOIRON GARE SUD",
+      "color": "F0AA28",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "TAD"
+    },
+    {
+      "id": "TPV:TAD-G",
+      "gtfsId": "TPV:1000061",
+      "shortName": "TAD-G",
+      "longName": "CHARANCIEU CENTRE - VOIRON GARE SUD",
+      "color": "F0AA28",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "TAD"
+    },
+    {
+      "id": "TPV:TAD-W",
+      "gtfsId": "TPV:1000063",
+      "shortName": "TAD-W",
+      "longName": "POMMIER PALLACHERE - VOREPPE GARE SNCF",
+      "color": "F0AA28",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "TAD"
+    },
+    {
+      "id": "SNC:C1",
+      "gtfsId": "SNC:FR:Line::05C666F4-3B26-4DB6-A4A8-F3C6D6150B76:",
+      "shortName": "C1",
+      "longName": "Grenoble - Chambery",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:C11",
+      "gtfsId": "SNC:FR:Line::BF117DF3-52D4-480E-BA33-EE64D381EB84:",
+      "shortName": "C11",
+      "longName": "Saint-Marcellin - Grenoble Universités Gières",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:C31",
+      "gtfsId": "SNC:FR:Line::a6442ac3-6f55-438e-92b9-bc368cfaff20:",
+      "shortName": "C31",
+      "longName": "St André-le-Gaz - Grenoble - Chambéry",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:C6",
+      "gtfsId": "SNC:FR:Line::DAF77CAA-444E-43F9-A7EC-1FFEF4C462CD:",
+      "shortName": "C6",
+      "longName": "Saint-André Le Gaz - Grenoble Universités Gières",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:E01",
+      "gtfsId": "SNC:FR:Line::17ec14e3-7470-4a7d-9739-1cc0df566193:",
+      "shortName": "E01",
+      "longName": "RE Chamonix / Grenoble",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:E02",
+      "gtfsId": "SNC:FR:Line::49a38037-4ced-4c27-b83a-76b818b8265f:",
+      "shortName": "E02",
+      "longName": "RE Evian / Grenoble",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:E06",
+      "gtfsId": "SNC:FR:Line::0437790b-b672-4080-bc26-d4e5f241db34:",
+      "shortName": "E06",
+      "longName": "RE Annonay / Grenoble Gare",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:E07",
+      "gtfsId": "SNC:FR:Line::624ee439-887f-4bb3-9528-ba1628434edb:",
+      "shortName": "E07",
+      "longName": "RE Aubenas / Grenoble",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:E08",
+      "gtfsId": "SNC:FR:Line::576ebcaf-ad0f-4599-ae3b-c9b9e15312e0:",
+      "shortName": "E08",
+      "longName": "RE Modane / Grenoble",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:E09",
+      "gtfsId": "SNC:FR:Line::db59bfbb-0ca3-4f70-9dd5-5f99880e952f:",
+      "shortName": "E09",
+      "longName": "RE Bourg-St-Maurice / Grenoble",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:INCONNU",
+      "gtfsId": "SNC:OCESN-87335521-87723429",
+      "shortName": "INCONNU",
+      "longName": "-",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:INCONNU",
+      "gtfsId": "SNC:OCESN-87697128-87697490",
+      "shortName": "INCONNU",
+      "longName": "-",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:K11",
+      "gtfsId": "SNC:FR:Line::B231BDC9-525A-4096-882F-6EFB9C25B27A:",
+      "shortName": "K11",
+      "longName": "Valence - Genève Cornavin",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:K21",
+      "gtfsId": "SNC:FR:Line::F28D551A-A369-44D2-A99B-0E546CDBEC87:",
+      "shortName": "K21",
+      "longName": "Valence - Annecy",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:K6",
+      "gtfsId": "SNC:FR:Line::D02BC35E-F58E-45E7-968F-42B8AB630E6E:",
+      "shortName": "K6",
+      "longName": "Lyon Part Dieu - Grenoble",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:P24",
+      "gtfsId": "SNC:FR:Line::BD427EAB-2FA4-46A5-84D0-6ADB50D00346:",
+      "shortName": "P24",
+      "longName": "Grenoble - Gap",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:P25",
+      "gtfsId": "SNC:FR:Line::990301c3-14d2-4ac3-b839-9f452ebd7f65:",
+      "shortName": "P25",
+      "longName": "Grenoble - Clelles - Veynes",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:P4",
+      "gtfsId": "SNC:FR:Line::3A8EBF2F-6FA9-424B-A5C1-79893B3A3675:",
+      "shortName": "P4",
+      "longName": "Romans - Valence - Die",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:P4",
+      "gtfsId": "SNC:FR:Line::E787EB35-6D67-48A0-A641-FEC921895C71:",
+      "shortName": "P4",
+      "longName": "Romans - Valence - Gap - Briancon",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "RAIL",
+      "type": "SNC"
+    },
+    {
+      "id": "SNC:P64",
+      "gtfsId": "SNC:FR:Line::BC79F350-B193-4238-8C53-3653157B88FD:",
+      "shortName": "P64",
+      "longName": "Valence  - Die",
+      "color": "004da3",
+      "textColor": "ffffff",
+      "mode": "BUS",
+      "type": "SNC"
+    },
+    {
+      "id": "TPV:TAD-PMR",
+      "gtfsId": "TPV:1000062",
+      "shortName": "TAD-PMR",
+      "longName": "TAD-PMR",
+      "color": "F0AA28",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "PMR"
+    },
+    {
+      "id": "BUL:BUL",
+      "gtfsId": "BUL:BUL_1",
+      "shortName": "BUL",
+      "longName": "Téléphérique Grenoble-Bastille / Quai Stéphane Jay",
+      "color": "FF00FF",
+      "textColor": "FFFFFF",
+      "mode": "CABLE_CAR",
+      "type": "BUL"
+    },
+    {
+      "id": "FUN:FUN",
+      "gtfsId": "FUN:FUN_1",
+      "shortName": "FUN",
+      "longName": "Funiculaire Saint-Hilaire-du-Touvet",
+      "color": "FF00FF",
+      "textColor": "FFFFFF",
+      "mode": "FUNICULAR",
+      "type": "FUN"
+    },
+    {
+      "id": "MCO:GRES",
+      "gtfsId": "MCO:18",
+      "shortName": "GRES",
+      "longName": "Gresivaudan - Grenoble",
+      "color": "49B170",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "MCO"
+    },
+    {
+      "id": "MCO:SUD",
+      "gtfsId": "MCO:47",
+      "shortName": "SUD",
+      "longName": "Vizille - Meylan",
+      "color": "49B170",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "MCO"
+    },
+    {
+      "id": "TRA:TA2A",
+      "gtfsId": "TRA:TA2A",
+      "shortName": "TA2A",
+      "longName": "Transaltitude Les Deux Alpes",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAAG",
+      "gtfsId": "TRA:TAAG",
+      "shortName": "TAAG",
+      "longName": "Transaltitude Alpe du Grand Serre",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAAH",
+      "gtfsId": "TRA:TAAH",
+      "shortName": "TAAH",
+      "longName": "Transaltitude Alpe d'Huez",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAAU",
+      "gtfsId": "TRA:TAAU",
+      "shortName": "TAAU",
+      "longName": "Transaltitude Auris en Oisans",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TACO",
+      "gtfsId": "TRA:TACO",
+      "shortName": "TACO",
+      "longName": "Transaltitude Villard de Lans - Corrençon-en-Vercors",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAGV",
+      "gtfsId": "TRA:TAGV",
+      "shortName": "TAGV",
+      "longName": "TRANSALTITUDE GRENOBLE-GRESSE EN VERCORS",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TALA",
+      "gtfsId": "TRA:TALA",
+      "shortName": "TALA",
+      "longName": "Transaltitude Lans en Vercors",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAME",
+      "gtfsId": "TRA:TAME",
+      "shortName": "TAME",
+      "longName": "Transaltitude Lans - Autrans - Méaudre",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAOZ",
+      "gtfsId": "TRA:TAOZ",
+      "shortName": "TAOZ",
+      "longName": "Transaltitude Oz en Oisans",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TASP",
+      "gtfsId": "TRA:TASP",
+      "shortName": "TASP",
+      "longName": "Transaltitude Saint Pierre de Chartreuse",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAVA",
+      "gtfsId": "TRA:TAVA",
+      "shortName": "TAVA",
+      "longName": "Transaltitude Vaujany",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAVC",
+      "gtfsId": "TRA:TAVC",
+      "shortName": "TAVC",
+      "longName": "TRANSALTITUDE VALENCE-CORRENCON",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAVM",
+      "gtfsId": "TRA:TAVM",
+      "shortName": "TAVM",
+      "longName": "TRANSALTITUDE VALENCE-AUTRANS-LANS-MEAUDRE",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "TRA:TAVR",
+      "gtfsId": "TRA:TAVR",
+      "shortName": "TAVR",
+      "longName": "Transaltitude Villard Reculas",
+      "color": "A7C4E1",
+      "textColor": "000000",
+      "mode": "BUS",
+      "type": "TRA"
+    },
+    {
+      "id": "MCO:VERC",
+      "gtfsId": "MCO:46",
+      "shortName": "VERC",
+      "longName": "Vercors - Grenoble",
+      "color": "49B170",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "MCO"
+    },
+    {
+      "id": "MCO:VOIR",
+      "gtfsId": "MCO:17",
+      "shortName": "VOIR",
+      "longName": "Pays Voironnais - Grenoble",
+      "color": "49B170",
+      "textColor": "FFFFFF",
+      "mode": "BUS",
+      "type": "MCO"
+    }
+  ]
