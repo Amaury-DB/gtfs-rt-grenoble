@@ -1,13 +1,56 @@
 import express from 'express';
+import GtfsRealtimeBindings from 'gtfs-realtime-bindings';
 import { GtfsRtConverter } from './gtfs-rt/converter';
 import { BatchProcessor } from './gtfs-rt/batch-processor';
 
+interface TripDescriptor {
+  tripId: string;
+  routeId: string;
+  scheduleRelationship: number;
+}
+
+interface StopTimeUpdate {
+  stopId: string;
+  departure: {
+    delay: number;
+    time: number;
+  };
+  scheduleRelationship: number;
+}
+
+interface TripUpdate {
+  trip: TripDescriptor;
+  stopTimeUpdate: StopTimeUpdate[];
+}
+
+interface FeedEntity {
+  id: string;
+  tripUpdate: TripUpdate;
+}
+
+interface Feed {
+  header: {
+    gtfsRealtimeVersion: string;
+    incrementality: number;
+    timestamp: number;
+  };
+  entity: FeedEntity[];
+}
+
 const app = express();
 const converter = new GtfsRtConverter();
-const batchProcessor = new BatchProcessor();
+const batchProcessor = new BatchProcessor(converter);
 
-// Store the latest feed data
-let latestFeed: { protobuf: Buffer; json: any } | null = null;
+// Store accumulated feed data
+let accumulatedFeed: Feed = {
+  header: {
+    gtfsRealtimeVersion: '2.0',
+    incrementality: 0,
+    timestamp: Math.floor(Date.now() / 1000)
+  },
+  entity: []
+};
+let serverReady = false;
 
 // Function to process a batch of stops
 async function processBatch(stopIds: string[]): Promise<void> {
@@ -17,18 +60,25 @@ async function processBatch(stopIds: string[]): Promise<void> {
       return;
     }
 
-    const protobufFeed = await converter.generateFeed(stopIds);
-    const jsonFeed = await converter.generateJsonFeed(stopIds);
+    // Get new feed data for this batch
+    const newJsonFeed = await converter.generateJsonFeed(stopIds);
     
-    // Only update the latest feed if we got valid data
-    if (protobufFeed.length === 0) {
-      console.warn('No valid data in feed, skipping update');
-      return;
-    }
-
-    latestFeed = {
-      protobuf: Buffer.from(protobufFeed),
-      json: jsonFeed
+    // Update timestamp
+    accumulatedFeed.header.timestamp = Math.floor(Date.now() / 1000);
+    
+    // Remove old entries for stops in this batch
+    const batchStopIds = new Set(stopIds);
+    accumulatedFeed.entity = accumulatedFeed.entity.filter(entity => {
+      const stopId = entity.tripUpdate?.stopTimeUpdate?.[0]?.stopId;
+      return stopId && !batchStopIds.has(stopId);
+    });
+    
+    // Add new entries from this batch
+    if (newJsonFeed.entity && newJsonFeed.entity.length > 0) {
+      accumulatedFeed.entity = [...accumulatedFeed.entity, ...newJsonFeed.entity];
+      console.log(`Added ${newJsonFeed.entity.length} updates from current batch. Total updates: ${accumulatedFeed.entity.length}`);
+    } else {
+      console.log('No new updates in current batch');
     };
   } catch (error) {
     console.error('Error processing batch:', error);
@@ -37,17 +87,29 @@ async function processBatch(stopIds: string[]): Promise<void> {
 
 // Start the batch processing loop
 async function startBatchProcessing() {
+  // Initialize the batch processor first
+  try {
+    await batchProcessor.initialize();
+    serverReady = true;
+    console.log('Server is ready to serve GTFS-RT data');
+  } catch (error) {
+    console.error('Failed to initialize batch processor:', error);
+    process.exit(1);
+  }
+
   while (true) {
     const batch = batchProcessor.getNextBatch();
+    const batchDelay = batchProcessor.getBatchDelay();
+    
+    console.log(`Processing batch of ${batch.length} stops, next batch in ${batchDelay}ms`);
     await processBatch(batch);
     
     // Wait before processing the next batch
-    await new Promise(resolve => setTimeout(resolve, batchProcessor.getBatchDelay()));
+    await new Promise(resolve => setTimeout(resolve, batchDelay));
     
-    // If we've processed all stops, wait before starting the next cycle
-    if (batch.length === 0 || batch.length < 5) {
-      console.log('Completed full cycle, waiting 1 minute before next update');
-      await new Promise(resolve => setTimeout(resolve, 60000 - batchProcessor.getBatchDelay()));
+    // If we've processed all stops, start a new cycle
+    if (batch.length === 0) {
+      console.log('Completed full cycle, starting new cycle');
     }
   }
 }
@@ -61,27 +123,52 @@ app.use((req, res, next) => {
 
 // Health check endpoint
 app.get('/gtfs-rt/health', (req, res) => {
-  res.json({ status: 'ok' });
+  res.json({ 
+    status: serverReady ? 'ready' : 'initializing',
+    totalStops: batchProcessor.getTotalStops(),
+    lastUpdate: accumulatedFeed.entity.length > 0 ? new Date().toISOString() : null
+  });
 });
 
 // GTFS-RT feed endpoint
 app.get('/gtfs-rt/trip-updates', async (req, res) => {
   try {
-    if (!latestFeed) {
+    if (!serverReady) {
       return res.status(503).json({
         error: 'Service unavailable',
-        message: 'Feed data is not yet available'
+        message: 'Server is still initializing. Please check /gtfs-rt/health for status.'
       });
     }
-
+    
     // Check format parameter
     const format = req.query.format?.toString().toLowerCase();
-
+    
     if (format === 'json') {
-      res.json(latestFeed.json);
+      res.json(accumulatedFeed);
     } else {
+      const protobufFeed = GtfsRealtimeBindings.transit_realtime.FeedMessage.encode({
+        header: accumulatedFeed.header,
+        entity: accumulatedFeed.entity.map(entity => ({
+          id: entity.id,
+          tripUpdate: {
+            trip: {
+              tripId: entity.tripUpdate.trip.tripId,
+              routeId: entity.tripUpdate.trip.routeId,
+              scheduleRelationship: 0
+            },
+            stopTimeUpdate: entity.tripUpdate.stopTimeUpdate.map(update => ({
+              stopId: update.stopId,
+              departure: {
+                delay: update.departure.delay,
+                time: update.departure.time
+              },
+              scheduleRelationship: 0
+            }))
+          }
+        }))
+      }).finish();
       res.set('Content-Type', 'application/x-protobuf');
-      res.send(latestFeed.protobuf);
+      res.send(Buffer.from(protobufFeed));
     }
   } catch (error) {
     console.error('Error generating GTFS-RT feed:', error);

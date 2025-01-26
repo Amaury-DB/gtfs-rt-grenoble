@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { StopTime, TripUpdate, ApiResponse, ApiTime } from './types';
 import GtfsRealtimeBindings from 'gtfs-realtime-bindings';
+import { CacheManager } from './cache-manager';
 
 export class GtfsRtConverter {
   private readonly API_BASE_URL = 'https://data.mobilites-m.fr/api';
   private readonly axiosInstance;
+  private cacheManager: CacheManager;
 
   constructor() {
     this.axiosInstance = axios.create({
@@ -13,16 +15,28 @@ export class GtfsRtConverter {
         'origin': 'Mobilidia - Contact via contact@mobilidia.fr'
       }
     });
+    this.cacheManager = new CacheManager();
   }
 
   async fetchStopTimes(stopId: string): Promise<StopTime> {
     try {
+      // Check cache first
+      const cachedData = this.cacheManager.getStopData(stopId);
+      if (cachedData) {
+        return cachedData;
+      }
+
       const response = await this.axiosInstance.get(
         `/routers/default/index/stops/${stopId}/stoptimes`
       );
 
       const data = response.data;
-      return this.convertApiResponseToStopTime(stopId, data);
+      const convertedData = this.convertApiResponseToStopTime(stopId, data);
+      
+      // Update cache with new data
+      this.cacheManager.updateStopData(stopId, convertedData);
+      
+      return convertedData;
     } catch (error) {
       console.error(`Error fetching stop times for ${stopId}:`, error);
       throw error;
@@ -137,10 +151,18 @@ export class GtfsRtConverter {
   private async generateTripUpdates(stopIds: string[]): Promise<TripUpdate[]> {
     console.log(`Generating feed for ${stopIds.length} stops: ${stopIds.slice(0, 5).join(', ')}${stopIds.length > 5 ? '...' : ''}`);
     
+    // Clean up expired cache entries
+    this.cacheManager.clearExpiredData();
+    
+    // Log cache stats
+    const stats = this.cacheManager.getStats();
+    console.log(`Cache stats - Total cached: ${stats.totalCached}, Average age: ${Math.round(stats.averageAge/1000)}s`);
+    
     const validationResults = await Promise.all(
       stopIds.map(id => this.validateStopId(id))
     );
     const validStopIds = stopIds.filter((_, index) => validationResults[index]);
+    console.log(`Valid stops: ${validStopIds.length}/${stopIds.length}`);
 
     if (validStopIds.length === 0) {
       console.warn(`No valid stops found in batch. Received ${stopIds.length} stops, all were invalid.`);
@@ -150,13 +172,23 @@ export class GtfsRtConverter {
     const stopTimes = await Promise.all(
       validStopIds.map(stopId => this.fetchStopTimes(stopId))
     );
+    console.log(`Fetched stop times for ${stopTimes.length} stops`);
 
     const tripUpdates = stopTimes
       .flatMap(stopTime => this.convertToTripUpdate(stopTime))
-      .filter(update => update.delay !== 0);
+      .filter(update => {
+        const hasDelay = update.delay !== 0;
+        if (!hasDelay) {
+          console.log(`Skipping update for trip ${update.tripId} - no delay`);
+        }
+        return hasDelay;
+      });
 
     if (tripUpdates.length === 0) {
-      console.warn('No trip updates with delays found');
+      console.warn('No trip updates with delays found. Check if:');
+      console.warn('1. Stops are valid and accessible');
+      console.warn('2. There are any active trips');
+      console.warn('3. Any trips have delays');
     }
 
     return tripUpdates;
@@ -169,12 +201,18 @@ export class GtfsRtConverter {
 
   private convertToTripUpdate(stopTime: StopTime): TripUpdate[] {
     if (stopTime.pattern.length === 0) {
+      console.log('No pattern found in stopTime');
       return [];
     }
 
-    return stopTime.times.map(time => ({
+    const formatRouteId = (patternId: string): string => {
+      const match = patternId.match(/^([A-Z]+:\d+(?::\d+)?)/);
+      return match ? match[1] : patternId;
+    };
+
+    const updates = stopTime.times.map(time => ({
       tripId: time.tripId,
-      routeId: stopTime.pattern[0]?.id.split(':')[1] || '',
+      routeId: formatRouteId(stopTime.pattern[0]?.id || ''),
       delay: time.departureDelay,
       timestamp: this.getCurrentTimestamp(),
       stopTimeUpdates: [{
@@ -185,5 +223,11 @@ export class GtfsRtConverter {
         }
       }]
     }));
+
+    if (updates.length === 0) {
+      console.log('No times found for pattern:', stopTime.pattern[0]?.id);
+    }
+
+    return updates;
   }
 }

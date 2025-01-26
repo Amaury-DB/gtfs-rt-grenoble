@@ -1,14 +1,22 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { GtfsRtConverter } from './converter';
 
 export class BatchProcessor {
   private stops: string[] = [];
   private currentBatchIndex = 0;
-  private readonly batchSize = 5;
-  private readonly delayBetweenBatches = 5000; // 5 seconds
+  private readonly batchSize = 10; // Reduced batch size for better distribution
+  private readonly cycleTime = 300000; // 5 minutes in milliseconds
+  private isInitialized = false;
+  private validStops: Set<string> = new Set();
 
-  constructor() {
-    this.loadStops();
+  constructor(private converter: GtfsRtConverter) {}
+
+  public async initialize(): Promise<void> {
+    console.log('Initializing BatchProcessor...');
+    await this.loadAndValidateStops();
+    this.isInitialized = true;
+    console.log(`Initialization complete. ${this.validStops.size} valid stops ready for processing.`);
   }
 
   private loadStops(): void {
@@ -56,10 +64,42 @@ export class BatchProcessor {
   }
 
   public getBatchDelay(): number {
-    return this.delayBetweenBatches;
+    const totalBatches = Math.ceil(this.stops.length / this.batchSize);
+    // Ensure minimum delay between batches (at least 1 second)
+    const calculatedDelay = Math.floor(this.cycleTime / totalBatches);
+    return Math.max(calculatedDelay, 1000);
   }
 
   public getTotalStops(): number {
     return this.stops.length;
+  }
+
+  private async loadAndValidateStops(): Promise<void> {
+    this.loadStops();
+    
+    if (this.stops.length === 0) {
+      throw new Error('No stops loaded from stops.json');
+    }
+
+    console.log(`Validating ${this.stops.length} stops...`);
+    const batchSize = 50; // Validate stops in larger batches for speed
+    
+    for (let i = 0; i < this.stops.length; i += batchSize) {
+      const batch = this.stops.slice(i, i + batchSize);
+      const results = await Promise.all(
+        batch.map(async (stopId) => {
+          const isValid = await this.converter.validateStopId(stopId);
+          if (isValid) {
+            this.validStops.add(stopId);
+          }
+          return isValid;
+        })
+      );
+      console.log(`Validated batch ${i/batchSize + 1}/${Math.ceil(this.stops.length/batchSize)}: ${results.filter((r: boolean) => r).length} valid stops`);
+    }
+  }
+
+  public isReady(): boolean {
+    return this.isInitialized && this.validStops.size > 0;
   }
 }
