@@ -284,20 +284,15 @@ export class GtfsRtConverter {
     }) => {
       const validDeparture = Math.max(time.realtimeDeparture, time.realtimeArrival);
       const validScheduled = Math.max(time.scheduledDeparture, time.scheduledArrival);
-      const delayInSeconds = validDeparture - validScheduled;
 
-      // For early departures (negative delay), we need to handle differently
-      const isEarly = delayInSeconds < 0;
-      const absoluteDelay = Math.abs(delayInSeconds * 1000); // Convert to milliseconds
+      // Calculate absolute delay in milliseconds
+      const absoluteDelay = Math.abs(validDeparture - validScheduled) * 1000;
 
-      // For early departures, we subtract the delay from scheduled time
-      // For late departures, we add the delay to scheduled time
-      const departureTime = isEarly ?
-        validScheduled - absoluteDelay / 1000 : // Convert back to seconds for timestamp
-        validScheduled + absoluteDelay / 1000;
+      // Always use the actual realtime departure as the timestamp
+      const departureTime = validDeparture;
       
       return {
-        delay: isEarly ? -absoluteDelay : absoluteDelay, // Keep delay sign for early/late distinction
+        delay: absoluteDelay, // Always positive delay in milliseconds
         time: Math.floor(departureTime) // Absolute epoch time
       }
     };
@@ -320,8 +315,7 @@ export class GtfsRtConverter {
         }
 
         const validTimes = ensureValidTimes(time);
-        // Only skip if there's absolutely no delay (early or late)
-        if (Math.abs(validTimes.delay) === 0) {
+        if (validTimes.delay === 0) {
           return null;
         }
 
