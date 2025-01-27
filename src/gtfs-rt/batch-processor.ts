@@ -78,13 +78,12 @@ export class BatchProcessor {
   private async loadAndValidateStops(): Promise<void> {
     this.loadStops();
     
-    // Log total stops loaded for debugging
     if (this.stops.length === 0) {
       throw new Error('No stops loaded from stops.json');
     }
 
     console.log(`Starting validation of ${this.stops.length} stops...`);
-    const batchSize = 50; // Validate stops in larger batches for speed
+    const batchSize = 100; // Increased batch size for faster validation
     
     let validCount = 0;
     let invalidCount = 0;
@@ -92,29 +91,42 @@ export class BatchProcessor {
 
     for (let i = 0; i < this.stops.length; i += batchSize) {
       const batch = this.stops.slice(i, i + batchSize);
+      const startTime = Date.now();
       
-      // Process each stop in the batch
-      for (const stopId of batch) {
-        try {
-          const isValid = await this.converter.validateStopId(stopId);
-          if (isValid) {
-            this.validStops.add(stopId);
-            validCount++;
-          } else {
-            invalidCount++;
-            errorDetails[stopId] = 'Failed validation check';
+      // Validate stops in parallel with a concurrency limit
+      const results = await Promise.all(
+        batch.map(async stopId => {
+          try {
+            const isValid = await this.converter.validateStopId(stopId);
+            return { stopId, isValid, error: null };
+          } catch (error) {
+            return { stopId, isValid: false, error };
           }
-        } catch (error) {
+        })
+      );
+
+      // Process results
+      for (const result of results) {
+        if (result.isValid) {
+          this.validStops.add(result.stopId);
+          validCount++;
+        } else {
           invalidCount++;
-          errorDetails[stopId] = error instanceof Error ? error.message : 'Unknown error';
-          console.error(`Error validating stop ${stopId}:`, error);
+          errorDetails[result.stopId] = result.error ?
+            (result.error instanceof Error ? result.error.message : 'Unknown error') :
+            'Failed validation check';
         }
       }
       
-      // Log progress for current batch
       const currentBatch = Math.floor(i/batchSize) + 1;
       const totalBatches = Math.ceil(this.stops.length/batchSize);
-      console.log(`Batch ${currentBatch}/${totalBatches} complete. Progress: ${validCount} valid, ${invalidCount} invalid`);
+      const timeElapsed = Date.now() - startTime;
+      const progress = ((i + batch.length) / this.stops.length * 100).toFixed(1);
+      console.log(
+        `Batch ${currentBatch}/${totalBatches} complete (${progress}%). ` +
+        `Valid: ${validCount}, Invalid: ${invalidCount}. ` +
+        `Time: ${(timeElapsed/1000).toFixed(1)}s`
+      );
     }
     
     // Log final validation results
