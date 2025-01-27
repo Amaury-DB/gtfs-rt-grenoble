@@ -161,14 +161,12 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
             id: entity.id,
             tripUpdate: {
               trip: {
-                tripId: entity.tripUpdate.trip.tripId.replace(/^sem:/i, '').replace(/^sem:/i, '')
-                  .replace(/-(\d+)$/, '$1'), // Replace negative numbers with positive ones
+                tripId: entity.tripUpdate.trip.tripId.replace(/^sem:/i, '').replace(/^sem:/i, ''),
                 routeId: entity.tripUpdate.trip.routeId,
                 scheduleRelationship: 0
               },
               stopTimeUpdate: entity.tripUpdate.stopTimeUpdate.map(update => ({
-                stopId: update.stopId.replace(/^sem:/i, '').replace(/^sem:/i, '')
-                  .replace(/-(\d+)$/, '$1'), // Replace negative numbers with positive ones
+                stopId: update.stopId.replace(/^sem:/i, '').replace(/^sem:/i, ''),
                 departure: {
                   delay: Math.floor(update.departure.delay),
                   time: Math.floor(update.departure.time) // Ensure integer UTC POSIX time in seconds
