@@ -282,13 +282,22 @@ export class GtfsRtConverter {
       scheduledArrival: number;
       scheduledDeparture: number;
     }) => {
-      const now = Math.floor(Date.now() / 1000); // Current epoch time
       const validDeparture = Math.max(time.realtimeDeparture, time.realtimeArrival);
-      const validDepartureDelay = (validDeparture - time.scheduledDeparture) * 1000; // Convert to epoch milliseconds
-      const departureTime = now + validDepartureDelay; // Add delay to current time
+      const validScheduled = Math.max(time.scheduledDeparture, time.scheduledArrival);
+      const delayInSeconds = validDeparture - validScheduled;
+
+      // For early departures (negative delay), we need to handle differently
+      const isEarly = delayInSeconds < 0;
+      const absoluteDelay = Math.abs(delayInSeconds * 1000); // Convert to milliseconds
+
+      // For early departures, we subtract the delay from scheduled time
+      // For late departures, we add the delay to scheduled time
+      const departureTime = isEarly ?
+        validScheduled - absoluteDelay / 1000 : // Convert back to seconds for timestamp
+        validScheduled + absoluteDelay / 1000;
       
       return {
-        delay: Math.floor(validDepartureDelay), // Delay in milliseconds
+        delay: isEarly ? -absoluteDelay : absoluteDelay, // Keep delay sign for early/late distinction
         time: Math.floor(departureTime) // Absolute epoch time
       }
     };
@@ -296,10 +305,12 @@ export class GtfsRtConverter {
     const formatRouteId = (patternId: string): string => {
       // Extract just the number after SEM:
       const match = patternId.match(/^sem:(?:sem:)?(\d+)(?::\d+)*$/i);
-      if (match && match[1]) {
-        return match[1];
+      if (match?.[1]) {
+        // Remove any hyphens and ensure it's a positive number
+        return match[1].replace(/-/g, '');
       }
-      return patternId;
+      // Fallback: remove hyphens and SEM: prefix, keep only numbers
+      return patternId.replace(/^sem:/i, '').replace(/-/g, '').replace(/\D/g, '') || '0';
     };
 
     const updates = stopTime.times
@@ -309,7 +320,8 @@ export class GtfsRtConverter {
         }
 
         const validTimes = ensureValidTimes(time);
-        if (validTimes.delay === 0) {
+        // Only skip if there's absolutely no delay (early or late)
+        if (Math.abs(validTimes.delay) === 0) {
           return null;
         }
 
