@@ -274,7 +274,6 @@ export class GtfsRtConverter {
       return [];
     }
 
-    // Helper function to ensure valid times
     const ensureValidTimes = (time: {
       realtimeArrival: number;
       realtimeDeparture: number;
@@ -283,15 +282,14 @@ export class GtfsRtConverter {
       scheduledArrival: number;
       scheduledDeparture: number;
     }) => {
-      // Ensure departure is not before arrival
+      const now = Math.floor(Date.now() / 1000); // Current epoch time
       const validDeparture = Math.max(time.realtimeDeparture, time.realtimeArrival);
-      const validDepartureDelay = validDeparture - time.scheduledDeparture;
-      // Ensure integer UTC POSIX time
-      const utcTime = Math.floor(validDeparture);
+      const validDepartureDelay = (validDeparture - time.scheduledDeparture) * 1000; // Convert to epoch milliseconds
+      const departureTime = now + validDepartureDelay; // Add delay to current time
       
       return {
-        delay: Math.floor(validDepartureDelay),
-        time: utcTime
+        delay: Math.floor(validDepartureDelay), // Delay in milliseconds
+        time: Math.floor(departureTime) // Absolute epoch time
       }
     };
 
@@ -306,25 +304,27 @@ export class GtfsRtConverter {
 
     const updates = stopTime.times
       .map(time => {
-        // Skip non-SEM trip IDs
         if (!time.tripId.toLowerCase().startsWith('sem:')) {
           return null;
         }
 
         const validTimes = ensureValidTimes(time);
+        if (validTimes.delay === 0) {
+          return null;
+        }
+
         return {
           tripId: time.tripId,
           routeId: formatRouteId(stopTime.pattern[0]?.id || ''),
           delay: validTimes.delay,
-          timestamp: this.getCurrentTimestamp(),
+          timestamp: Math.floor(Date.now() / 1000), // Current epoch time
           stopTimeUpdates: [{
             stopId: time.stopId,
             departure: validTimes
           }]
         };
       })
-      .filter((update): update is NonNullable<typeof update> => update !== null)
-      .filter(update => update.delay !== undefined && !isNaN(update.delay));
+      .filter((update): update is NonNullable<typeof update> => update !== null);
 
     if (updates.length === 0) {
       console.log('No times found for pattern:', stopTime.pattern[0]?.id);
