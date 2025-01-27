@@ -44,7 +44,7 @@ export class GtfsRtConverter {
   }
 
   private convertApiResponseToStopTime(stopId: string, apiResponse: ApiResponse[]): StopTime {
-    if (!apiResponse || !Array.isArray(apiResponse)) {
+    if (!stopId.toLowerCase().startsWith('sem:') || !apiResponse || !Array.isArray(apiResponse)) {
       console.warn(`Invalid API response for stop ${stopId}`);
       return { pattern: [], times: [] };
     }
@@ -56,7 +56,9 @@ export class GtfsRtConverter {
     }
     
     const times = apiResponse.flatMap(update => 
-      update.times.map((time: ApiTime) => ({
+      update.times
+      .filter(time => time.tripId.toLowerCase().startsWith('sem:'))
+      .map((time: ApiTime) => ({
         stopId: time.stopId,
         stopName: time.stopName,
         scheduledArrival: time.scheduledArrival,
@@ -91,7 +93,8 @@ export class GtfsRtConverter {
 
   async validateStopId(stopId: string): Promise<boolean> {
     try {
-      if (!stopId.match(/^SEM:[0-9]+$/)) {
+      // Only validate IDs that start with SEM:
+      if (!stopId.toLowerCase().startsWith('sem:')) {
         console.warn(`Warning: Invalid stop ID format ${stopId}`);
         return false;
       }
@@ -205,24 +208,54 @@ export class GtfsRtConverter {
       return [];
     }
 
-    const formatRouteId = (patternId: string): string => {
-      const match = patternId.match(/^([A-Z]+:\d+(?::\d+)?)/);
-      return match ? match[1] : patternId;
+    // Helper function to ensure valid times
+    const ensureValidTimes = (time: {
+      realtimeArrival: number;
+      realtimeDeparture: number;
+      arrivalDelay: number;
+      departureDelay: number;
+    }) => {
+      // If departure is before arrival, set departure equal to arrival
+      if (time.realtimeDeparture < time.realtimeArrival) {
+        time.realtimeDeparture = time.realtimeArrival;
+        time.departureDelay = time.arrivalDelay;
+      }
+      return {
+        delay: time.departureDelay,
+        time: time.realtimeDeparture
+      };
     };
 
-    const updates = stopTime.times.map(time => ({
-      tripId: time.tripId,
-      routeId: formatRouteId(stopTime.pattern[0]?.id || ''),
-      delay: time.departureDelay,
-      timestamp: this.getCurrentTimestamp(),
-      stopTimeUpdates: [{
-        stopId: time.stopId,
-        departure: {
-          delay: time.departureDelay,
-          time: time.realtimeDeparture
+    const formatRouteId = (patternId: string): string => {
+      // Extract just the number after SEM:
+      const match = patternId.match(/^sem:(?:sem:)?(\d+)(?::\d+)*$/i);
+      if (match && match[1]) {
+        return match[1];
+      }
+      return patternId;
+    };
+
+    const updates = stopTime.times
+      .map(time => {
+        // Skip non-SEM trip IDs
+        if (!time.tripId.toLowerCase().startsWith('sem:')) {
+          return null;
         }
-      }]
-    }));
+
+        const validTimes = ensureValidTimes(time);
+        return {
+          tripId: time.tripId,
+          routeId: formatRouteId(stopTime.pattern[0]?.id || ''),
+          delay: validTimes.delay,
+          timestamp: this.getCurrentTimestamp(),
+          stopTimeUpdates: [{
+            stopId: time.stopId,
+            departure: validTimes
+          }]
+        };
+      })
+      .filter((update): update is NonNullable<typeof update> => update !== null)
+      .filter(update => update.delay !== undefined && !isNaN(update.delay));
 
     if (updates.length === 0) {
       console.log('No times found for pattern:', stopTime.pattern[0]?.id);

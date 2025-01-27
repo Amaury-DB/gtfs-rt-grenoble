@@ -32,10 +32,11 @@ export class BatchProcessor {
       // Extract stop IDs from the features array
       this.stops = stopsData.features
         .map((feature: any) => feature.properties?.gtfsId || null)
-        .filter((code: string | null): code is string => 
-          code !== null && 
-          typeof code === 'string' &&
-          code.startsWith('SEM:')
+        .filter((code: string | null): code is string => {
+          if (!code || typeof code !== 'string') return false;
+          // Only accept IDs that start with SEM:
+          return code.toLowerCase().startsWith('sem:');
+        }
         );
 
       console.log(`Loaded ${this.stops.length} stops from stops.json. First 5 stops:`, this.stops.slice(0, 5));

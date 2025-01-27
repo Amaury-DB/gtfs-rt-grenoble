@@ -152,12 +152,12 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
           id: entity.id,
           tripUpdate: {
             trip: {
-              tripId: entity.tripUpdate.trip.tripId,
+              tripId: entity.tripUpdate.trip.tripId.replace(/^sem:/i, ''),
               routeId: entity.tripUpdate.trip.routeId,
               scheduleRelationship: 0
             },
             stopTimeUpdate: entity.tripUpdate.stopTimeUpdate.map(update => ({
-              stopId: update.stopId,
+              stopId: update.stopId.replace(/^sem:/i, ''),
               departure: {
                 delay: update.departure.delay,
                 time: update.departure.time
