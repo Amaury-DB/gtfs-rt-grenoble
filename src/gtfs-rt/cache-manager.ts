@@ -9,11 +9,15 @@ export class CacheManager {
   private stopCache: Map<string, CachedStopData> = new Map();
   private readonly cacheLifetime = 30000; // 30 seconds cache lifetime
 
+  private getPosixTime(): number {
+    return Math.floor(Date.now() / 1000); // UTC POSIX time
+  }
+
   public getStopData(stopId: string): StopTime | null {
     const cached = this.stopCache.get(stopId);
     if (!cached) return null;
     
-    const now = Date.now();
+    const now = this.getPosixTime();
     if (now - cached.lastUpdated > this.cacheLifetime) {
       this.stopCache.delete(stopId);
       return null;
@@ -30,13 +34,13 @@ export class CacheManager {
     }
 
     this.stopCache.set(stopId, {
-      lastUpdated: Date.now(),
+      lastUpdated: this.getPosixTime(),
       data
     });
   }
 
   public clearExpiredData(): void {
-    const now = Date.now();
+    const now = this.getPosixTime();
     for (const [stopId, cached] of this.stopCache.entries()) {
       if (now - cached.lastUpdated > this.cacheLifetime) {
         this.stopCache.delete(stopId);
@@ -68,7 +72,7 @@ export class CacheManager {
     totalCached: number;
     averageAge: number;
   } {
-    const now = Date.now();
+    const now = this.getPosixTime();
     const ages = Array.from(this.stopCache.values())
       .map(cache => now - cache.lastUpdated);
     

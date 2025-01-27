@@ -7,6 +7,10 @@ export class GtfsRtConverter {
   private readonly API_BASE_URL = 'https://data.mobilites-m.fr/api';
   private readonly axiosInstance;
   private cacheManager: CacheManager;
+  private rateLimiter: {
+    lastRequest: number;
+    minDelay: number;
+  };
 
   constructor() {
     this.axiosInstance = axios.create({
@@ -15,7 +19,43 @@ export class GtfsRtConverter {
         'origin': 'Mobilidia - Contact via contact@mobilidia.fr'
       }
     });
+    this.rateLimiter = {
+      lastRequest: 0,
+      minDelay: 1000 // Minimum 1 second between requests
+    };
     this.cacheManager = new CacheManager();
+  }
+
+  private async delay(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  private async makeRateLimitedRequest<T>(
+    url: string,
+    retries = 3,
+    backoffMs = 2000
+  ): Promise<T> {
+    const now = Date.now();
+    const timeSinceLastRequest = now - this.rateLimiter.lastRequest;
+    
+    if (timeSinceLastRequest < this.rateLimiter.minDelay) {
+      await this.delay(this.rateLimiter.minDelay - timeSinceLastRequest);
+    }
+    
+    try {
+      this.rateLimiter.lastRequest = Date.now();
+      const response = await this.axiosInstance.get<T>(url);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response?.status === 429) {
+        if (retries > 0) {
+          console.log(`Rate limited, retrying in ${backoffMs}ms... (${retries} retries left)`);
+          await this.delay(backoffMs);
+          return this.makeRateLimitedRequest(url, retries - 1, backoffMs * 2);
+        }
+      }
+      throw error;
+    }
   }
 
   async fetchStopTimes(stopId: string): Promise<StopTime> {
@@ -26,11 +66,8 @@ export class GtfsRtConverter {
         return cachedData;
       }
 
-      const response = await this.axiosInstance.get(
-        `/routers/default/index/stops/${stopId}/stoptimes`
-      );
+      const data = await this.makeRateLimitedRequest<ApiResponse[]>(`/routers/default/index/stops/${stopId}/stoptimes`);
 
-      const data = response.data;
       const convertedData = this.convertApiResponseToStopTime(stopId, data);
       
       // Update cache with new data
@@ -95,20 +132,37 @@ export class GtfsRtConverter {
     try {
       // Only validate IDs that start with SEM:
       if (!stopId.toLowerCase().startsWith('sem:')) {
-        console.warn(`Warning: Invalid stop ID format ${stopId}`);
+        console.warn(`Stop ID ${stopId} does not start with SEM: prefix`);
         return false;
       }
 
-      await this.axiosInstance.get(`/routers/default/index/stops/${stopId}/stoptimes`);
+      const data = await this.makeRateLimitedRequest<ApiResponse[]>(`/routers/default/index/stops/${stopId}/stoptimes`);
+      
+      // Check if the response contains valid data
+      if (!data || !Array.isArray(data) || data.length === 0) {
+        console.warn(`Stop ID ${stopId} returned empty or invalid data`);
+        return false;
+      }
+      
+      // Check if the stop has any patterns
+      if (!data[0]?.pattern) {
+        console.warn(`Stop ID ${stopId} has no pattern data`);
+        return false;
+      }
+      
       return true;
     } catch (error) {
-      console.warn(`Warning: Invalid stop ID ${stopId}`);
+      if (axios.isAxiosError(error)) {
+        console.warn(`Stop ID ${stopId} validation failed: ${error.response?.status === 404 ? 'Stop not found' : error.message}`);
+      } else {
+        console.warn(`Stop ID ${stopId} validation failed with unexpected error`);
+      }
       return false;
     }
   }
 
   private getCurrentTimestamp(): number {
-    return Math.floor(Date.now() / 1000);
+    return Math.floor(Date.now() / 1000); // UTC POSIX time
   }
 
   private createJsonFeedMessage(tripUpdates: TripUpdate[]): any {
@@ -214,16 +268,19 @@ export class GtfsRtConverter {
       realtimeDeparture: number;
       arrivalDelay: number;
       departureDelay: number;
+      scheduledArrival: number;
+      scheduledDeparture: number;
     }) => {
-      // If departure is before arrival, set departure equal to arrival
-      if (time.realtimeDeparture < time.realtimeArrival) {
-        time.realtimeDeparture = time.realtimeArrival;
-        time.departureDelay = time.arrivalDelay;
-      }
+      // Ensure departure is not before arrival
+      const validDeparture = Math.max(time.realtimeDeparture, time.realtimeArrival);
+      const validDepartureDelay = validDeparture - time.scheduledDeparture;
+      // Ensure integer UTC POSIX time
+      const utcTime = Math.floor(validDeparture);
+      
       return {
-        delay: time.departureDelay,
-        time: time.realtimeDeparture
-      };
+        delay: Math.floor(validDepartureDelay),
+        time: utcTime
+      }
     };
 
     const formatRouteId = (patternId: string): string => {

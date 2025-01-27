@@ -78,25 +78,59 @@ export class BatchProcessor {
   private async loadAndValidateStops(): Promise<void> {
     this.loadStops();
     
+    // Log total stops loaded for debugging
     if (this.stops.length === 0) {
       throw new Error('No stops loaded from stops.json');
     }
 
-    console.log(`Validating ${this.stops.length} stops...`);
+    console.log(`Starting validation of ${this.stops.length} stops...`);
     const batchSize = 50; // Validate stops in larger batches for speed
     
+    let validCount = 0;
+    let invalidCount = 0;
+    let errorDetails: { [key: string]: string } = {};
+
     for (let i = 0; i < this.stops.length; i += batchSize) {
       const batch = this.stops.slice(i, i + batchSize);
-      const results = await Promise.all(
-        batch.map(async (stopId) => {
+      
+      // Process each stop in the batch
+      for (const stopId of batch) {
+        try {
           const isValid = await this.converter.validateStopId(stopId);
           if (isValid) {
             this.validStops.add(stopId);
+            validCount++;
+          } else {
+            invalidCount++;
+            errorDetails[stopId] = 'Failed validation check';
           }
-          return isValid;
-        })
-      );
-      console.log(`Validated batch ${i/batchSize + 1}/${Math.ceil(this.stops.length/batchSize)}: ${results.filter((r: boolean) => r).length} valid stops`);
+        } catch (error) {
+          invalidCount++;
+          errorDetails[stopId] = error instanceof Error ? error.message : 'Unknown error';
+          console.error(`Error validating stop ${stopId}:`, error);
+        }
+      }
+      
+      // Log progress for current batch
+      const currentBatch = Math.floor(i/batchSize) + 1;
+      const totalBatches = Math.ceil(this.stops.length/batchSize);
+      console.log(`Batch ${currentBatch}/${totalBatches} complete. Progress: ${validCount} valid, ${invalidCount} invalid`);
+    }
+    
+    // Log final validation results
+    console.log('\nValidation Summary:');
+    console.log(`✓ Valid stops: ${validCount}`);
+    console.log(`✗ Invalid stops: ${invalidCount}`);
+    
+    if (invalidCount > 0) {
+      console.log('\nInvalid Stops Details:');
+      Object.entries(errorDetails).forEach(([stopId, reason]) => {
+        console.log(`- ${stopId}: ${reason}`);
+      });
+    }
+    
+    if (validCount === 0) {
+      throw new Error('No valid stops found after validation');
     }
   }
 

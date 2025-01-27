@@ -46,7 +46,7 @@ let accumulatedFeed: Feed = {
   header: {
     gtfsRealtimeVersion: '2.0',
     incrementality: 0,
-    timestamp: Math.floor(Date.now() / 1000)
+    timestamp: Math.floor(Date.now() / 1000) // UTC POSIX time
   },
   entity: []
 };
@@ -64,7 +64,7 @@ async function processBatch(stopIds: string[]): Promise<void> {
     const newJsonFeed = await converter.generateJsonFeed(stopIds);
     
     // Update timestamp
-    accumulatedFeed.header.timestamp = Math.floor(Date.now() / 1000);
+    accumulatedFeed.header.timestamp = Math.floor(Date.now() / 1000); // UTC POSIX time
     
     // Remove old entries for stops in this batch
     const batchStopIds = new Set(stopIds);
@@ -148,24 +148,29 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
     } else {
       const protobufFeed = GtfsRealtimeBindings.transit_realtime.FeedMessage.encode({
         header: accumulatedFeed.header,
-        entity: accumulatedFeed.entity.map(entity => ({
-          id: entity.id,
-          tripUpdate: {
-            trip: {
-              tripId: entity.tripUpdate.trip.tripId.replace(/^sem:/i, ''),
-              routeId: entity.tripUpdate.trip.routeId,
-              scheduleRelationship: 0
-            },
-            stopTimeUpdate: entity.tripUpdate.stopTimeUpdate.map(update => ({
-              stopId: update.stopId.replace(/^sem:/i, ''),
-              departure: {
-                delay: update.departure.delay,
-                time: update.departure.time
+        entity: accumulatedFeed.entity
+          .filter(entity => {
+            const tripId = entity.tripUpdate?.trip?.tripId;
+            return tripId && tripId.toLowerCase().startsWith('sem:');
+          })
+          .map(entity => ({
+            id: entity.id,
+            tripUpdate: {
+              trip: {
+                tripId: entity.tripUpdate.trip.tripId.replace(/^sem:/i, '').replace(/^sem:/i, ''),
+                routeId: entity.tripUpdate.trip.routeId,
+                scheduleRelationship: 0
               },
-              scheduleRelationship: 0
-            }))
-          }
-        }))
+              stopTimeUpdate: entity.tripUpdate.stopTimeUpdate.map(update => ({
+                stopId: update.stopId.replace(/^sem:/i, '').replace(/^sem:/i, ''),
+                departure: {
+                  delay: Math.floor(update.departure.delay),
+                  time: Math.floor(update.departure.time) // Ensure integer UTC POSIX time
+                },
+                scheduleRelationship: 0
+              }))
+            }
+          }))
       }).finish();
       res.set('Content-Type', 'application/x-protobuf');
       res.send(Buffer.from(protobufFeed));
