@@ -162,17 +162,18 @@ export class GtfsRtConverter {
   }
 
   private getCurrentTimestamp(): number {
-    return Math.floor(Date.now() / 1000); // UTC POSIX time
+    return Math.floor(new Date().getTime() / 1000); // Ensure UTC POSIX time in seconds
   }
 
   private createJsonFeedMessage(tripUpdates: TripUpdate[]): any {
     const timestamp = this.getCurrentTimestamp();
+    const currentTime = Math.floor(Date.now() / 1000); // UTC POSIX time in seconds
     
     return {
       header: {
         gtfsRealtimeVersion: '2.0',
         incrementality: 0,
-        timestamp
+        timestamp: currentTime
       },
       entity: tripUpdates.map((update, index) => ({
         id: index.toString(),
@@ -186,7 +187,7 @@ export class GtfsRtConverter {
             stopId: stu.stopId,
             departure: {
               delay: stu.departure.delay,
-              time: stu.departure.time
+              time: Math.floor(stu.departure.time) // Ensure integer UTC POSIX time in seconds
             },
             scheduleRelationship: 0
           }))

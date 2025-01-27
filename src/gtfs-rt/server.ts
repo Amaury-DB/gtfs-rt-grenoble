@@ -46,7 +46,7 @@ let accumulatedFeed: Feed = {
   header: {
     gtfsRealtimeVersion: '2.0',
     incrementality: 0,
-    timestamp: Math.floor(Date.now() / 1000) // UTC POSIX time
+    timestamp: Math.floor(new Date().getTime() / 1000) // UTC POSIX time in seconds
   },
   entity: []
 };
@@ -64,7 +64,7 @@ async function processBatch(stopIds: string[]): Promise<void> {
     const newJsonFeed = await converter.generateJsonFeed(stopIds);
 
     // Update timestamp
-    accumulatedFeed.header.timestamp = Math.floor(Date.now() / 1000); // UTC POSIX time
+    accumulatedFeed.header.timestamp = Math.floor(new Date().getTime() / 1000); // UTC POSIX time in seconds
 
     // Remove old entries for stops in this batch
     const batchStopIds = new Set(stopIds);
@@ -169,7 +169,7 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
                 stopId: update.stopId.replace(/^sem:/i, '').replace(/^sem:/i, ''),
                 departure: {
                   delay: Math.floor(update.departure.delay),
-                  time: Math.floor(update.departure.time) // Ensure integer UTC POSIX time
+                  time: Math.floor(update.departure.time) // Ensure integer UTC POSIX time in seconds
                 },
                 scheduleRelationship: 0
               }))
