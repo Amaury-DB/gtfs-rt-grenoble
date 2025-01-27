@@ -296,10 +296,12 @@ export class GtfsRtConverter {
     const formatRouteId = (patternId: string): string => {
       // Extract just the number after SEM:
       const match = patternId.match(/^sem:(?:sem:)?(\d+)(?::\d+)*$/i);
-      if (match && match[1]) {
-        return match[1];
+      if (match?.[1]) {
+        // Remove any hyphens and ensure it's a positive number
+        return match[1].replace(/-/g, '');
       }
-      return patternId;
+      // Fallback: remove hyphens and SEM: prefix, keep only numbers
+      return patternId.replace(/^sem:/i, '').replace(/-/g, '').replace(/\D/g, '') || '0';
     };
 
     const updates = stopTime.times
