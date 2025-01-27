@@ -281,19 +281,19 @@ export class GtfsRtConverter {
       departureDelay: number;
       scheduledArrival: number;
       scheduledDeparture: number;
+      serviceDay: number;
     }) => {
-      const validDeparture = Math.max(time.realtimeDeparture, time.realtimeArrival);
-      const validScheduled = Math.max(time.scheduledDeparture, time.scheduledArrival);
+      // Convert to POSIX timestamps (seconds since epoch)
+      const scheduledDepartureTime = time.serviceDay + Math.max(time.scheduledDeparture, time.scheduledArrival);
+      const realtimeDepartureTime = time.serviceDay + Math.max(time.realtimeDeparture, time.realtimeArrival);
 
-      // Calculate absolute delay in milliseconds
-      const absoluteDelay = Math.abs(validDeparture - validScheduled) * 1000;
+      // Calculate delay in milliseconds (always positive)
+      const delayInSeconds = Math.abs(realtimeDepartureTime - scheduledDepartureTime);
+      const delayInMilliseconds = delayInSeconds * 1000;
 
-      // Always use the actual realtime departure as the timestamp
-      const departureTime = validDeparture;
-      
       return {
-        delay: absoluteDelay, // Always positive delay in milliseconds
-        time: Math.floor(departureTime) // Absolute epoch time
+        delay: delayInMilliseconds,
+        time: Math.floor(realtimeDepartureTime) // POSIX time in seconds
       }
     };
 
@@ -315,7 +315,8 @@ export class GtfsRtConverter {
         }
 
         const validTimes = ensureValidTimes(time);
-        if (validTimes.delay === 0) {
+        // Only include updates with actual delays
+        if (validTimes.delay < 1000) { // Less than 1 second delay
           return null;
         }
 
@@ -323,7 +324,7 @@ export class GtfsRtConverter {
           tripId: time.tripId,
           routeId: formatRouteId(stopTime.pattern[0]?.id || ''),
           delay: validTimes.delay,
-          timestamp: Math.floor(Date.now() / 1000), // Current epoch time
+          timestamp: this.getCurrentTimestamp(),
           stopTimeUpdates: [{
             stopId: time.stopId,
             departure: validTimes
