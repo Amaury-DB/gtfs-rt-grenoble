@@ -2,6 +2,7 @@ import express from 'express';
 import GtfsRealtimeBindings from 'gtfs-realtime-bindings';
 import { GtfsRtConverter } from './gtfs-rt/converter';
 import { BatchProcessor } from './gtfs-rt/batch-processor';
+import { RequestLogger } from './gtfs-rt/logger';
 
 interface TripDescriptor {
   tripId: string;
@@ -40,6 +41,7 @@ interface Feed {
 const app = express();
 const converter = new GtfsRtConverter();
 const batchProcessor = new BatchProcessor(converter);
+const logger = new RequestLogger();
 
 // Store accumulated feed data
 let accumulatedFeed: Feed = {
@@ -127,17 +129,21 @@ app.use((req, res, next) => {
 
 // Health check endpoint
 app.get('/gtfs-rt/health', (req, res) => {
+  const startTime = Date.now();
   res.json({
     status: serverReady ? 'ready' : 'initializing',
     totalStops: batchProcessor.getTotalStops(),
     lastUpdate: accumulatedFeed.entity.length > 0 ? new Date().toISOString() : null
   });
+  logger.logRequest('GET', '/gtfs-rt/health', 200, Date.now() - startTime);
 });
 
 // GTFS-RT feed endpoint
 app.get('/gtfs-rt/trip-updates', async (req, res) => {
+  const startTime = Date.now();
   try {
     if (!serverReady) {
+      logger.logRequest('GET', '/gtfs-rt/trip-updates', 503, Date.now() - startTime);
       return res.status(503).json({
         error: 'Service unavailable',
         message: 'Server is still initializing. Please check /gtfs-rt/health for status.'
@@ -179,8 +185,10 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
       res.set('Content-Type', 'application/x-protobuf');
       res.send(Buffer.from(protobufFeed));
     }
+    logger.logRequest('GET', '/gtfs-rt/trip-updates', 200, Date.now() - startTime);
   } catch (error) {
-    console.error('Error generating GTFS-RT feed:', error);
+    logger.logError(error instanceof Error ? error : new Error(String(error)), 'GTFS-RT feed generation');
+    logger.logRequest('GET', '/gtfs-rt/trip-updates', 500, Date.now() - startTime);
     res.status(500).json({
       error: 'Error generating feed',
       message: error instanceof Error ? error.message : 'Unknown error'
@@ -192,8 +200,8 @@ const PORT = process.env.PORT || 80;
 
 app.listen(PORT, () => {
   // Start the batch processing after server is running
-  startBatchProcessing().catch(error => {
-    console.error('Error in batch processing loop:', error);
+  startBatchProcessing().catch((error: unknown) => {
+    logger.logError(error instanceof Error ? error : new Error(String(error)), 'Batch processing');
   });
 
   console.log(`
