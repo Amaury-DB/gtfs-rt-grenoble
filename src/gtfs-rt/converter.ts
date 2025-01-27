@@ -130,13 +130,17 @@ export class GtfsRtConverter {
 
   async validateStopId(stopId: string): Promise<boolean> {
     try {
-      // Only validate IDs that start with SEM:
+      // Normalize stop ID format
+      const normalizedStopId = stopId.toUpperCase();
+
+      // Validate ID format
       if (!stopId.toLowerCase().startsWith('sem:')) {
         console.warn(`Stop ID ${stopId} does not start with SEM: prefix`);
         return false;
       }
 
-      const data = await this.makeRateLimitedRequest<ApiResponse[]>(`/routers/default/index/stops/${stopId}/stoptimes`);
+      // Make the request with normalized ID
+      const data = await this.makeRateLimitedRequest<ApiResponse[]>(`/routers/default/index/stops/${normalizedStopId}/stoptimes`);
       
       // Check if the response contains valid data
       if (!data || !Array.isArray(data) || data.length === 0) {
@@ -144,9 +148,16 @@ export class GtfsRtConverter {
         return false;
       }
       
-      // Check if the stop has any patterns
-      if (!data[0]?.pattern) {
+      // Check if the stop has valid pattern and times
+      if (!data[0]?.pattern || !data[0]?.times || data[0].times.length === 0) {
         console.warn(`Stop ID ${stopId} has no pattern data`);
+        return false;
+      }
+
+      // Verify pattern has required fields
+      const pattern = data[0].pattern;
+      if (!pattern.id || !pattern.desc || pattern.dir === undefined) {
+        console.warn(`Stop ID ${stopId} has incomplete pattern data`);
         return false;
       }
       
