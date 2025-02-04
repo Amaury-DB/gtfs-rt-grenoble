@@ -12,7 +12,6 @@ interface TripDescriptor {
 
 interface StopTimeUpdate {
   stopId: string;
-  stop_id?: string;
   departure: {
     delay: number;
     time: number;
@@ -22,8 +21,7 @@ interface StopTimeUpdate {
 
 interface TripUpdate {
   trip: TripDescriptor;
-  stop_time_update?: StopTimeUpdate[];
-  stopTimeUpdate?: StopTimeUpdate[];
+  stopTimeUpdate: StopTimeUpdate[];
 }
 
 interface FeedEntity {
@@ -66,17 +64,17 @@ async function processBatch(stopIds: string[]): Promise<void> {
 
     // Get new feed data for this batch
     const newJsonFeed = await converter.generateJsonFeed(stopIds);
-
+    
     // Update timestamp
     accumulatedFeed.header.timestamp = Math.floor(new Date().getTime() / 1000); // UTC POSIX time in seconds
-
+    
     // Remove old entries for stops in this batch
     const batchStopIds = new Set(stopIds);
     accumulatedFeed.entity = accumulatedFeed.entity.filter(entity => {
       const stopId = entity.tripUpdate?.stopTimeUpdate?.[0]?.stopId;
       return stopId && !batchStopIds.has(stopId);
     });
-
+    
     // Add new entries from this batch
     if (newJsonFeed.entity && newJsonFeed.entity.length > 0) {
       accumulatedFeed.entity = [...accumulatedFeed.entity, ...newJsonFeed.entity];
@@ -108,13 +106,13 @@ async function startBatchProcessing() {
   while (true) {
     const batch = batchProcessor.getNextBatch();
     const batchDelay = batchProcessor.getBatchDelay();
-
+    
     console.log(`Processing batch of ${batch.length} stops, next batch in ${batchDelay}ms`);
     await processBatch(batch);
-
+    
     // Wait before processing the next batch
     await new Promise(resolve => setTimeout(resolve, batchDelay));
-
+    
     // If we've processed all stops, start a new cycle
     if (batch.length === 0) {
       console.log('Completed full cycle, starting new cycle');
@@ -132,7 +130,7 @@ app.use((req, res, next) => {
 // Health check endpoint
 app.get('/gtfs-rt/health', (req, res) => {
   const startTime = Date.now();
-  res.json({
+  res.json({ 
     status: serverReady ? 'ready' : 'initializing',
     totalStops: batchProcessor.getTotalStops(),
     lastUpdate: accumulatedFeed.entity.length > 0 ? new Date().toISOString() : null
@@ -151,67 +149,38 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
         message: 'Server is still initializing. Please check /gtfs-rt/health for status.'
       });
     }
-
+    
     // Check format parameter
     const format = req.query.format?.toString().toLowerCase();
-
-    // Get current time for filtering
-    const currentTime = Math.floor(Date.now() / 1000);
-
+    
     if (format === 'json') {
-      // Create OTP-compatible JSON structure
-      const otpFeed = {
-        header: accumulatedFeed.header,
-        entity: accumulatedFeed.entity
-            .filter(entity => {
-              const tripId = entity.tripUpdate?.trip?.tripId;
-              if (!tripId?.toLowerCase().startsWith('sem:')) return false;
-
-              // Get departure time from first stop update
-              const departureTime = entity.tripUpdate?.stopTimeUpdate?.[0]?.departure.time || 0;
-              return departureTime > currentTime;
-            })
-            .map(entity => ({
-              id: entity.id,
-              trip_update: {
-                trip: {
-                  trip_id: entity.tripUpdate.trip.tripId.replace(/^sem:/i, ''),
-                  route_id: entity.tripUpdate.trip.routeId.replace(/^sem:/i, '')
-                },
-                stop_time_updates: entity.tripUpdate.stopTimeUpdate
-                    ?.sort((a, b) => a.departure.time - b.departure.time)
-                    .map(update => ({
-                      stop_id: update.stopId.replace(/^sem:/i, '').replace(/-/g, ''),
-                      departure_time: Math.floor(update.departure.time),
-                      delay: Math.floor(update.departure.delay / 1000) // Convert ms to seconds
-                    }))
-              }
-            }))
-      };
-      res.json(otpFeed);
+      res.json(accumulatedFeed);
     } else {
       const protobufFeed = GtfsRealtimeBindings.transit_realtime.FeedMessage.encode({
         header: accumulatedFeed.header,
         entity: accumulatedFeed.entity
-            .filter(entity => {
-              const tripId = entity.tripUpdate?.trip?.tripId;
-              return tripId && tripId.toLowerCase().startsWith('sem:');
-            })
-            .map(entity => ({
-              id: entity.id,
-              tripUpdate: {
-                trip: {
-                  tripId: entity.tripUpdate.trip.tripId,
-                  routeId: entity.tripUpdate.trip.routeId,
-                  scheduleRelationship: 0
+          .filter(entity => {
+            const tripId = entity.tripUpdate?.trip?.tripId;
+            return tripId && tripId.toLowerCase().startsWith('sem:');
+          })
+          .map(entity => ({
+            id: entity.id,
+            tripUpdate: {
+              trip: {
+                tripId: entity.tripUpdate.trip.tripId.replace(/^sem:/i, ''),
+                routeId: entity.tripUpdate.trip.routeId.replace(/^sem:/i, ''),
+                scheduleRelationship: 0
+              },
+              stopTimeUpdate: entity.tripUpdate.stopTimeUpdate.map(update => ({
+                stopId: update.stopId.replace(/^sem:/i, '').replace(/-/g, ''),
+                departure: {
+                  delay: Math.floor(update.departure.delay),
+                  time: Math.floor(update.departure.time) // Ensure integer UTC POSIX time in seconds
                 },
-                stopTimeUpdate: entity.tripUpdate.stopTimeUpdate?.filter(update =>
-                    update.departure.time > currentTime
-                )?.sort((a, b) =>
-                    a.departure.time - b.departure.time
-                ) || []
-              }
-            }))
+                scheduleRelationship: 0
+              }))
+            }
+          }))
       }).finish();
       res.set('Content-Type', 'application/x-protobuf');
       res.send(Buffer.from(protobufFeed));
@@ -220,7 +189,7 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
   } catch (error) {
     logger.logError(error instanceof Error ? error : new Error(String(error)), 'GTFS-RT feed generation');
     logger.logRequest('GET', '/gtfs-rt/trip-updates', 500, Date.now() - startTime);
-    res.status(500).json({
+    res.status(500).json({ 
       error: 'Error generating feed',
       message: error instanceof Error ? error.message : 'Unknown error'
     });

@@ -31,17 +31,17 @@ export class GtfsRtConverter {
   }
 
   private async makeRateLimitedRequest<T>(
-      url: string,
-      retries = 3,
-      backoffMs = 2000
+    url: string,
+    retries = 3,
+    backoffMs = 2000
   ): Promise<T> {
     const now = Date.now();
     const timeSinceLastRequest = now - this.rateLimiter.lastRequest;
-
+    
     if (timeSinceLastRequest < this.rateLimiter.minDelay) {
       await this.delay(this.rateLimiter.minDelay - timeSinceLastRequest);
     }
-
+    
     try {
       this.rateLimiter.lastRequest = Date.now();
       const response = await this.axiosInstance.get<T>(url);
@@ -69,10 +69,10 @@ export class GtfsRtConverter {
       const data = await this.makeRateLimitedRequest<ApiResponse[]>(`/routers/default/index/stops/${stopId}/stoptimes`);
 
       const convertedData = this.convertApiResponseToStopTime(stopId, data);
-
+      
       // Update cache with new data
       this.cacheManager.updateStopData(stopId, convertedData);
-
+      
       return convertedData;
     } catch (error) {
       console.error(`Error fetching stop times for ${stopId}:`, error);
@@ -85,32 +85,32 @@ export class GtfsRtConverter {
       console.warn(`Invalid API response for stop ${stopId}`);
       return { pattern: [], times: [] };
     }
-
+    
     const pattern = apiResponse[0]?.pattern;
     if (!pattern) {
       console.warn(`No pattern found for stop ${stopId}`);
       return { pattern: [], times: [] };
     }
-
-    const times = apiResponse.flatMap(update =>
-        update.times
-            .filter(time => time.tripId.toLowerCase().startsWith('sem:'))
-            .map((time: ApiTime) => ({
-              stopId: time.stopId,
-              stopName: time.stopName,
-              scheduledArrival: time.scheduledArrival,
-              scheduledDeparture: time.scheduledDeparture,
-              realtimeArrival: time.realtimeArrival,
-              realtimeDeparture: time.realtimeDeparture,
-              arrivalDelay: time.arrivalDelay,
-              departureDelay: time.departureDelay,
-              timepoint: time.timepoint,
-              realtime: time.realtime,
-              realtimeState: time.realtimeState,
-              serviceDay: time.serviceDay,
-              tripId: time.tripId,
-              pickupType: time.pickupType
-            }))
+    
+    const times = apiResponse.flatMap(update => 
+      update.times
+      .filter(time => time.tripId.toLowerCase().startsWith('sem:'))
+      .map((time: ApiTime) => ({
+        stopId: time.stopId,
+        stopName: time.stopName,
+        scheduledArrival: time.scheduledArrival,
+        scheduledDeparture: time.scheduledDeparture,
+        realtimeArrival: time.realtimeArrival,
+        realtimeDeparture: time.realtimeDeparture,
+        arrivalDelay: time.arrivalDelay,
+        departureDelay: time.departureDelay,
+        timepoint: time.timepoint,
+        realtime: time.realtime,
+        realtimeState: time.realtimeState,
+        serviceDay: time.serviceDay,
+        tripId: time.tripId,
+        pickupType: time.pickupType
+      }))
     );
 
     const result = {
@@ -132,7 +132,7 @@ export class GtfsRtConverter {
     try {
       // Normalize stop ID format
       const normalizedStopId = stopId.toUpperCase();
-
+      
       // Validate ID format
       if (!stopId.toLowerCase().startsWith('sem:')) {
         console.warn(`Stop ID ${stopId} does not start with SEM: prefix`);
@@ -141,26 +141,26 @@ export class GtfsRtConverter {
 
       // Make the request with normalized ID
       const data = await this.makeRateLimitedRequest<ApiResponse[]>(`/routers/default/index/stops/${normalizedStopId}/stoptimes`);
-
+      
       // Check if the response contains valid data
       if (!data || !Array.isArray(data) || data.length === 0) {
         console.warn(`Stop ID ${stopId} returned empty or invalid data`);
         return false;
       }
-
+      
       // Check if the stop has valid pattern and times
       if (!data[0]?.pattern || !data[0]?.times || data[0].times.length === 0) {
         console.warn(`Stop ID ${stopId} has no pattern data`);
         return false;
       }
-
+      
       // Verify pattern has required fields
       const pattern = data[0].pattern;
       if (!pattern.id || !pattern.desc || pattern.dir === undefined) {
         console.warn(`Stop ID ${stopId} has incomplete pattern data`);
         return false;
       }
-
+      
       return true;
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -177,54 +177,31 @@ export class GtfsRtConverter {
   }
 
   private createJsonFeedMessage(tripUpdates: TripUpdate[]): any {
+    const timestamp = this.getCurrentTimestamp();
     const currentTime = Math.floor(Date.now() / 1000); // UTC POSIX time in seconds
-
-    // Group updates by trip ID and keep only the latest
-    const latestUpdates = new Map<string, TripUpdate>();
-    for (const update of tripUpdates) {
-      const existingUpdate = latestUpdates.get(update.tripId);
-      if (!existingUpdate || update.timestamp > existingUpdate.timestamp) {
-        latestUpdates.set(update.tripId, update);
-      }
-    }
-
-    // Convert to array and sort by departure time
-    const sortedUpdates = Array.from(latestUpdates.values())
-        .sort((a, b) => {
-          const timeA = a.stopTimeUpdates[0]?.departure.time || 0;
-          const timeB = b.stopTimeUpdates[0]?.departure.time || 0;
-          return timeA - timeB;
-        })
-        // Filter out past departures
-        .filter(update => {
-          const departureTime = update.stopTimeUpdates[0]?.departure.time || 0;
-          return departureTime > currentTime;
-        });
-
+    
     return {
       header: {
         gtfsRealtimeVersion: '2.0',
         incrementality: 0,
         timestamp: currentTime
       },
-      entity: sortedUpdates.map((update, index) => ({
+      entity: tripUpdates.map((update, index) => ({
         id: index.toString(),
         tripUpdate: {
           trip: {
-            trip_id: update.tripId.replace(/^sem:/i, ''),
-            route_id: update.routeId,
+            tripId: update.tripId,
+            routeId: update.routeId,
             scheduleRelationship: 0
           },
-          stop_time_update: update.stopTimeUpdates
-              .sort((a, b) => a.departure.time - b.departure.time)
-              .map(stu => ({
-                stop_id: stu.stopId.replace(/^sem:/i, ''),
-                departure: {
-                  delay: stu.departure.delay,
-                  time: Math.floor(stu.departure.time)
-                },
-                scheduleRelationship: 0
-              }))
+          stopTimeUpdate: update.stopTimeUpdates.map(stu => ({
+            stopId: stu.stopId,
+            departure: {
+              delay: stu.departure.delay,
+              time: Math.floor(stu.departure.time) // Ensure integer UTC POSIX time in seconds
+            },
+            scheduleRelationship: 0
+          }))
         }
       }))
     };
@@ -242,16 +219,16 @@ export class GtfsRtConverter {
 
   private async generateTripUpdates(stopIds: string[]): Promise<TripUpdate[]> {
     console.log(`Generating feed for ${stopIds.length} stops: ${stopIds.slice(0, 5).join(', ')}${stopIds.length > 5 ? '...' : ''}`);
-
+    
     // Clean up expired cache entries
     this.cacheManager.clearExpiredData();
-
+    
     // Log cache stats
     const stats = this.cacheManager.getStats();
     console.log(`Cache stats - Total cached: ${stats.totalCached}, Average age: ${Math.round(stats.averageAge/1000)}s`);
-
+    
     const validationResults = await Promise.all(
-        stopIds.map(id => this.validateStopId(id))
+      stopIds.map(id => this.validateStopId(id))
     );
     const validStopIds = stopIds.filter((_, index) => validationResults[index]);
     console.log(`Valid stops: ${validStopIds.length}/${stopIds.length}`);
@@ -262,19 +239,19 @@ export class GtfsRtConverter {
     }
 
     const stopTimes = await Promise.all(
-        validStopIds.map(stopId => this.fetchStopTimes(stopId))
+      validStopIds.map(stopId => this.fetchStopTimes(stopId))
     );
     console.log(`Fetched stop times for ${stopTimes.length} stops`);
 
     const tripUpdates = stopTimes
-        .flatMap(stopTime => this.convertToTripUpdate(stopTime))
-        .filter(update => {
-          const hasDelay = update.delay !== 0;
-          if (!hasDelay) {
-            console.log(`Skipping update for trip ${update.tripId} - no delay`);
-          }
-          return hasDelay;
-        });
+      .flatMap(stopTime => this.convertToTripUpdate(stopTime))
+      .filter(update => {
+        const hasDelay = update.delay !== 0;
+        if (!hasDelay) {
+          console.log(`Skipping update for trip ${update.tripId} - no delay`);
+        }
+        return hasDelay;
+      });
 
     if (tripUpdates.length === 0) {
       console.warn('No trip updates with delays found. Check if:');
@@ -332,29 +309,29 @@ export class GtfsRtConverter {
     };
 
     const updates = stopTime.times
-        .map(time => {
-          if (!time.tripId.toLowerCase().startsWith('sem:')) {
-            return null;
-          }
+      .map(time => {
+        if (!time.tripId.toLowerCase().startsWith('sem:')) {
+          return null;
+        }
 
-          const validTimes = ensureValidTimes(time);
-          // Only include updates with actual delays
-          if (validTimes.delay < 1000) { // Less than 1 second delay
-            return null;
-          }
+        const validTimes = ensureValidTimes(time);
+        // Only include updates with actual delays
+        if (validTimes.delay < 1000) { // Less than 1 second delay
+          return null;
+        }
 
-          return {
-            tripId: time.tripId,
-            routeId: formatRouteId(stopTime.pattern[0]?.id || ''),
-            delay: validTimes.delay,
-            timestamp: this.getCurrentTimestamp(),
-            stopTimeUpdates: [{
-              stopId: time.stopId,
-              departure: validTimes
-            }]
-          };
-        })
-        .filter((update): update is NonNullable<typeof update> => update !== null);
+        return {
+          tripId: time.tripId,
+          routeId: formatRouteId(stopTime.pattern[0]?.id || ''),
+          delay: validTimes.delay,
+          timestamp: this.getCurrentTimestamp(),
+          stopTimeUpdates: [{
+            stopId: time.stopId,
+            departure: validTimes
+          }]
+        };
+      })
+      .filter((update): update is NonNullable<typeof update> => update !== null);
 
     if (updates.length === 0) {
       console.log('No times found for pattern:', stopTime.pattern[0]?.id);

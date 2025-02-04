@@ -112,8 +112,8 @@ export class BatchProcessor {
           validCount++;
         } else {
           invalidCount++;
-          errorDetails[result.stopId] = result.error ?
-            (result.error instanceof Error ? result.error.message : 'Unknown error') :
+          errorDetails[result.stopId] = result.error ? 
+            (result.error instanceof Error ? result.error.message : 'Unknown error') : 
             'Failed validation check';
         }
       }
