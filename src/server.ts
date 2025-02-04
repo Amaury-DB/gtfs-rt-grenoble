@@ -159,28 +159,28 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
       const protobufFeed = GtfsRealtimeBindings.transit_realtime.FeedMessage.encode({
         header: accumulatedFeed.header,
         entity: accumulatedFeed.entity
-          .filter(entity => {
-            const tripId = entity.tripUpdate?.trip?.tripId;
-            return tripId && tripId.toLowerCase().startsWith('sem:');
-          })
           .map(entity => ({
             id: entity.id,
             tripUpdate: {
               trip: {
-                tripId: entity.tripUpdate.trip.tripId.replace(/^sem:/i, ''),
-                routeId: entity.tripUpdate.trip.routeId.replace(/^sem:/i, ''),
+                tripId: entity.tripUpdate.trip.tripId.replace(/^sem:/i, '').trim(),
+                routeId: entity.tripUpdate.trip.routeId.replace(/^sem:/i, '').trim(),
                 scheduleRelationship: 0
               },
               stopTimeUpdate: entity.tripUpdate.stopTimeUpdate.map(update => ({
-                stopId: update.stopId.replace(/^sem:/i, '').replace(/-/g, ''),
+                stopId: update.stopId.replace(/^sem:/i, '').replace(/[^a-z0-9]/gi, '').trim(),
                 departure: {
-                  delay: Math.floor(update.departure.delay),
+                  delay: Math.max(0, Math.floor(update.departure.delay / 1000)), // Convert ms to seconds and ensure positive
                   time: Math.floor(update.departure.time) // Ensure integer UTC POSIX time in seconds
                 },
                 scheduleRelationship: 0
-              }))
+              })).filter(update => update.departure.time > 0) // Filter out invalid times
             }
-          }))
+          })).filter(entity => 
+            entity.tripUpdate.trip.tripId && 
+            entity.tripUpdate.trip.routeId && 
+            entity.tripUpdate.stopTimeUpdate.length > 0
+          )
       }).finish();
       res.set('Content-Type', 'application/x-protobuf');
       res.send(Buffer.from(protobufFeed));
