@@ -4,9 +4,6 @@ import { GtfsRtConverter } from './converter';
 const app = express();
 const converter = new GtfsRtConverter();
 
-// Example stop IDs - replace with your actual stop IDs
-const STOP_IDS = ['SEM:0910', 'SEM:2005'];
-
 app.get('/gtfs-rt/trip-updates', async (req, res) => {
   try {
     const feed = await converter.generateFeed(STOP_IDS);
