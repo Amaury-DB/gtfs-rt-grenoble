@@ -181,32 +181,37 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
                   timestamp: Math.floor(Date.now() / 1000),
                   stopTimeUpdate: sortedUpdates.map((update, index) => {
                     const currentTime = Math.floor(update.departure.time);
+                    const currentDelay = Math.max(0, Math.floor(update.departure.delay / 1000));
                     const nextUpdate = sortedUpdates[index + 1];
                     const prevUpdate = sortedUpdates[index - 1];
 
-                    // Ensure arrival time is not after departure time
-                    const arrivalTime = Math.min(currentTime, currentTime);
-                    // Ensure departure time is not before arrival time
-                    const departureTime = Math.max(currentTime, currentTime);
+                    // Set arrival time slightly before departure time
+                    const arrivalTime = currentTime - 60; // 1 minute before departure
+                    const departureTime = currentTime;
 
                     // Validate against previous stop's departure time
-                    if (prevUpdate && departureTime <= Math.floor(prevUpdate.departure.time)) {
+                    if (prevUpdate && arrivalTime <= Math.floor(prevUpdate.departure.time) + 120) { // 2 min minimum travel time
                       return null;
                     }
 
                     // Validate against next stop's arrival time
-                    if (nextUpdate && arrivalTime >= Math.floor(nextUpdate.departure.time)) {
+                    if (nextUpdate && departureTime >= Math.floor(nextUpdate.departure.time) - 120) { // 2 min minimum travel time
+                      return null;
+                    }
+
+                    // Skip updates with invalid times
+                    if (arrivalTime <= 0 || departureTime <= 0 || arrivalTime >= departureTime) {
                       return null;
                     }
 
                     return {
                       stopId: update.stopId.replace(/^sem:/i, '').replace(/[^a-z0-9]/gi, '').trim(),
                       arrival: {
-                        delay: Math.max(0, Math.floor(update.departure.delay / 1000)),
+                        delay: currentDelay,
                         time: arrivalTime
                       },
                       departure: {
-                        delay: Math.max(0, Math.floor(update.departure.delay / 1000)),
+                        delay: currentDelay,
                         time: departureTime
                       },
                       scheduleRelationship: 0
@@ -223,7 +228,7 @@ app.get('/gtfs-rt/trip-updates', async (req, res) => {
                     update.stopId &&
                     update.arrival?.time &&
                     update.departure?.time &&
-                    update.arrival.time <= update.departure.time && // Ensure no negative dwell time
+                    update.arrival.time < update.departure.time && // Strict inequality for dwell time
                     update.departure.time > 0 &&
                     update.arrival.time > 0
                 )
