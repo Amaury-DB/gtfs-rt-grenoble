@@ -1,25 +1,16 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "node-starter",
   "private": true,
-  "version": "0.0.0",
   "scripts": {
-    "start": "ts-node src/server.ts",
-    "dev": "nodemon src/server.ts",
-    "build": "tsc",
-    "lint": "eslint ."
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/worker.js"
   },
   "dependencies": {
-    "axios": "^1.6.7",
-    "express": "^4.18.2",
+    "axios": "^1.6.2",
     "gtfs-realtime-bindings": "^1.1.1",
-    "protobufjs": "^7.2.6"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.11.19",
-    "eslint": "^9.9.1",
-    "nodemon": "^3.0.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "winston": "^3.11.0",
+    "p-limit": "^3.1.0",
+    "node-schedule": "^2.1.1",
+    "express": "^4.18.2"
   }
 }
